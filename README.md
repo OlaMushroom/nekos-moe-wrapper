@@ -1,15 +1,7 @@
-# bun
+# Nekos.moe.js
 
-To install dependencies:
+Refer to the [API docs](https://docs.nekos.moe/)
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
+---
 
 This project was created using `bun init` in bun v1.1.10. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

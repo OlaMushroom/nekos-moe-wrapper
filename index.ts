@@ -15,27 +15,45 @@ export async function image(id: string): Promise<any> {
   });
 }
 
-export async function random(count: number = 1, nsfw?: boolean): Promise<any> {
+export async function random(count?: number, nsfw?: boolean): Promise<any> {
   let query = "?";
-  if (count < 1 || count > 100) {
-    throw Error("Invalid count value, must be an integer between 1 and 100.");
-  }
-  else {
-    query += "count=" + count;
-  }
+  query = count !== undefined ? query + "count=" + count : query;
   query = nsfw !== undefined ? query + "&nsfw=" + nsfw : query;
   return await main(`random/image${query}`, {
     method: "GET",
   });
 }
 
-export async function search(): Promise<any> {
+export async function search(
+  id?: string,
+  nsfw?: boolean,
+  uploader?: string | object,
+  artist?: string,
+  tags?: Array<string>,
+  sort?: string,
+  posted_before?: number,
+  posted_after?: number,
+  skip?: number,
+  limit?: number
+): Promise<any> {
   return await main("images/search", {
     method: "POST",
-    body: {
-
-    }
-  });
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: id,
+      nsfw: nsfw,
+      uploader: uploader,
+      artist: artist,
+      tags: tags,
+      sort: sort,
+      posted_before: posted_before,
+      posted_after: posted_after,
+      skip: skip,
+      limit: limit
+    })
+  })
 }
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call
