@@ -66,10 +66,10 @@ export async function upload(
   artist?: string
 ): Promise<any> {
   const formData = new FormData();
-  formData.append("image", image);
-  formData.append("tags", tags.toString());
-  formData.append("nsfw", nsfw.toString());
-  if (artist !== undefined) formData.append("artist", artist);
+  formData.append('image', image);
+  formData.append('tags', tags.toString());
+  formData.append('nsfw', nsfw.toString());
+  if (artist !== undefined) formData.append('artist', artist);
 
   return await main('images', {
     method: 'POST',
