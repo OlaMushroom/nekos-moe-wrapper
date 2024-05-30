@@ -1,29 +1,36 @@
 async function main(endpoint: string, options: object): Promise<any> {
-  const url = (new URL(endpoint, 'https://nekos.moe/api/v1/')).toString();
-  console.log(url);
+  const url = (new URL(endpoint, "https://nekos.moe/api/v1/")).toString();
+  console.log(`URL: ${url}`);
 
   try {
-    const res = await (await fetch(url, options)).json();
-    return res;
+    return await (await fetch(url, options)).json();
   } catch (err) {
-    throw Error('Error: ', { cause: err });
+    throw Error("Error: ", { cause: err });
   }
 }
 
-export async function image(id: string): Promise<any> {
-  return await main(`images/${id}`, {
-    method: 'GET',
+export async function auth(username: string, password: string) {
+  return await main("auth", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password
+    })
   });
 }
 
-export async function random(count?: number, nsfw?: boolean): Promise<any> {
-  let query = '?';
-  query = count !== undefined ? query + 'count=' + count : query;
-  query = nsfw !== undefined ? query + '&nsfw=' + nsfw : query;
+export async function image(id: string): Promise<any> {
+  return await main(`images/${id}`, {});
+}
 
-  return await main(`random/image${query}`, {
-    method: 'GET',
-  });
+export async function random(count?: number, nsfw?: boolean): Promise<any> {
+  let query = "?";
+  query = count !== undefined ? query + "count=" + count : query;
+  query = nsfw !== undefined ? query + "&nsfw=" + nsfw : query;
+  return await main(`random/image${query}`, {});
 }
 
 export async function search(
@@ -38,10 +45,10 @@ export async function search(
   skip?: number,
   limit?: number
 ): Promise<any> {
-  return await main('images/search', {
-    method: 'POST',
+  return await main("images/search", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       id: id,
@@ -66,16 +73,16 @@ export async function upload(
   artist?: string
 ): Promise<any> {
   const formData = new FormData();
-  formData.append('image', image);
-  formData.append('tags', tags.toString());
-  formData.append('nsfw', nsfw.toString());
-  if (artist !== undefined) formData.append('artist', artist);
+  formData.append("image", image);
+  formData.append("tags", tags.toString());
+  formData.append("nsfw", nsfw.toString());
+  if (artist !== undefined) formData.append("artist", artist);
 
-  return await main('images', {
-    method: 'POST',
+  return await main("images", {
+    method: "POST",
     headers: {
-      'Authorization': auth,
-      'Content-Type': 'multipart/form-data'
+      "Authorization": auth,
+      "Content-Type": "multipart/form-data",
     },
     body: formData
   });

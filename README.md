@@ -6,7 +6,7 @@ Refer to the [API docs](https://docs.nekos.moe/)
 
 ```
 import * as nekos from "./index.ts";
-console.log(nekos.random()); // Get random image data.
+console.log(await nekos.random()); // Get random image data.
 ```
 
 ---
