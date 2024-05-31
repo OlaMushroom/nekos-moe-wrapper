@@ -9,7 +9,7 @@ async function main(endpoint: string, options: object): Promise<any> {
   }
 }
 
-export async function auth(_username: string, _password: string) {
+export async function auth(_username: string, _password: string): Promise<any> {
   return await main("auth", {
     method: "POST",
     headers: {
