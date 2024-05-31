@@ -13,9 +13,11 @@ Refer to the [API docs](https://docs.nekos.moe)
 - Manually adding package:
 
   ```console
-  deno add @om/nekos-moe # deno
-  # or
-  bun x jsr add @om/nekos-moe # bun
+  # Using deno
+  deno add @om/nekos-moe
+  
+  # or Bun
+  bun x jsr add @om/nekos-moe 
   ```
 
   then add the following
