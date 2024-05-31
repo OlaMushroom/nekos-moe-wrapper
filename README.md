@@ -15,9 +15,9 @@ Refer to the [API docs](https://docs.nekos.moe)
   ```console
   # Using deno
   deno add @om/nekos-moe
-  
+
   # or Bun
-  bun x jsr add @om/nekos-moe 
+  bunx jsr add @om/nekos-moe 
   ```
 
   then add the following
