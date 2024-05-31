@@ -13,7 +13,7 @@ Refer to the [API docs](https://docs.nekos.moe)
 - Manually adding package:
 
   ```console
-  # Using deno
+  # using Deno
   deno add @om/nekos-moe
 
   # or Bun
