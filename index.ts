@@ -9,15 +9,15 @@ async function main(endpoint: string, options: object): Promise<any> {
   }
 }
 
-export async function auth(username: string, password: string) {
+export async function auth(_username: string, _password: string) {
   return await main("auth", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username: username,
-      password: password
+      username: _username,
+      password: _password
     })
   });
 }
@@ -33,45 +33,17 @@ export async function random(count?: number, nsfw?: boolean): Promise<any> {
   return await main(`random/image${query}`, {});
 }
 
-export async function search(
-  id?: string,
-  nsfw?: boolean,
-  uploader?: string | object,
-  artist?: string,
-  tags?: Array<string>,
-  sort?: string,
-  posted_before?: number,
-  posted_after?: number,
-  skip?: number,
-  limit?: number
-): Promise<any> {
+export async function search(_body: object): Promise<any> {
   return await main("images/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      id: id,
-      nsfw: nsfw,
-      uploader: uploader,
-      artist: artist,
-      tags: tags,
-      sort: sort,
-      posted_before: posted_before,
-      posted_after: posted_after,
-      skip: skip,
-      limit: limit
-    })
+    body: JSON.stringify(_body)
   });
 }
 
-export async function upload(
-  auth: string,
-  image: File,
-  tags: Array<string>,
-  nsfw: boolean,
-  artist?: string
-): Promise<any> {
+export async function upload(auth: string, image: File, tags: Array<string>, nsfw: boolean, artist?: string): Promise<any> {
   const formData = new FormData();
   formData.append("image", image);
   formData.append("tags", tags.toString());

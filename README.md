@@ -4,7 +4,7 @@ Refer to the [API docs](https://docs.nekos.moe/)
 
 ## Usage
 
-```
+```js
 import * as nekos from "./index.ts";
 console.log(await nekos.random()); // Get random image data.
 ```
