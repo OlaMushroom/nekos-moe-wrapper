@@ -4,13 +4,13 @@ Refer to the [API docs](https://docs.nekos.moe)
 
 ## Getting Started
 
-- Method 1: Using `jsr:` specifiers with [Deno](https://deno.com):
+- Method 1: Using `jsr:` specifiers with [Deno](https://deno.com)
 
   ```js
   import * as nekos from "jsr:@om/nekos-moe";
   ```
 
-- Method 2: Manually adding package:
+- Method 2: Manually adding package
 
   ```console
   # using Deno
@@ -31,7 +31,3 @@ Refer to the [API docs](https://docs.nekos.moe)
 ```js
 console.log(await nekos.random()); // Get random image data.
 ```
-
----
-
-This project was created using `bun init` in bun v1.1.10. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
