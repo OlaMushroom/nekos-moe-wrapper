@@ -11,7 +11,9 @@ async function main(endpoint: string, options: object = {}): Promise<any> {
   console.log(`URL: ${url}`);
 
   try {
-    return await (await fetch(url, options)).json();
+    const res = await fetch(url, options);
+    if (!res.ok) throw Error(`HTTP Error: ${res.status} ${res.statusText}`);
+    return await res.json();
   } catch (err) {
     throw Error("Error: ", { cause: err });
   }
@@ -28,7 +30,7 @@ export async function auth(_username: string, _password: string): Promise<any> {
   return await main("auth", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       username: _username,
@@ -51,7 +53,7 @@ export async function image(id: string): Promise<any> {
  * Retrieves random images from the API.
  *
  * @param count - The number of random images to retrieve. Default is 1.
- * @param nsfw - A boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
+ * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
  * @returns A Promise that resolves to the JSON response containing the array of image data.
  */
 export async function random(count: number = 1, nsfw?: boolean): Promise<any> {
@@ -74,7 +76,7 @@ export async function search(fields: object): Promise<any> {
   return (await main("images/search", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(fields)
   })).images;
@@ -106,7 +108,7 @@ export async function upload(auth: string, image: File, tags: Array<string>, nsf
     method: "POST",
     headers: {
       "Authorization": auth,
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "multipart/form-data"
     },
     body: formData
   });
