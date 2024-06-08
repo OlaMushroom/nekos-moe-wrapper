@@ -1,33 +1,3 @@
 # Nekos.moe.js
 
-Refer to the [API docs](https://docs.nekos.moe)
-
-## Getting Started
-
-- Method 1: Using `jsr:` specifiers with [Deno](https://deno.com)
-
-  ```js
-  import * as nekos from "jsr:@om/nekos-moe";
-  ```
-
-- Method 2: Manually adding package
-
-  ```console
-  # using Deno
-  deno add @om/nekos-moe
-
-  # or Bun
-  bunx jsr add @om/nekos-moe 
-  ```
-
-  then add the following code
-
-  ```js
-  import * as nekos from "@om/nekos-moe";
-  ```
-
-## Usage
-
-```js
-console.log(await nekos.random()); // Get random image data.
-```
+Refer to the [documentation](https://docs.nekos.moe)
