@@ -1,3 +1,3 @@
 # Nekos.moe.js
 
-Refer to the [documentation](https://docs.nekos.moe)
+Refer to the [documentation](https://nekos-moe-js.vercel.app)
