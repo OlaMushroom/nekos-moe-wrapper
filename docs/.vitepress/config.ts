@@ -2,14 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "Nekos.moe.js",
+  description: "JS/TS wrapper for Nekos.moe API",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '', link: '/' },
     ],
-
     sidebar: [
       {
         items: [
@@ -24,7 +23,6 @@ export default defineConfig({
         ]
       }
     ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe.js' }
     ]
