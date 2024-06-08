@@ -22,19 +22,19 @@ async function main(endpoint: string, options: object = {}): Promise<any> {
 /**
  * Authenticates the user and returns an authorization token.
  *
- * @param _username - The username of the user.
- * @param _password - The password of the user.
+ * @param usr - The username of the user.
+ * @param pwd - The password of the user.
  * @returns A Promise that resolves to the JSON response containing the authorization token.
  */
-export async function auth(_username: string, _password: string): Promise<any> {
+export async function auth(usr: string, pwd: string): Promise<any> {
   return await main("auth", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      username: _username,
-      password: _password
+      username: usr,
+      password: pwd
     })
   });
 }
@@ -45,7 +45,7 @@ export async function auth(_username: string, _password: string): Promise<any> {
  * @param id - The unique identifier of the image.
  * @returns A Promise that resolves to the JSON response containing the image data.
  */
-export async function image(id: string): Promise<any> {
+export async function get(id: string): Promise<any> {
   return (await main(`images/${id}`)).image;
 }
 
@@ -57,20 +57,18 @@ export async function image(id: string): Promise<any> {
  * @returns A Promise that resolves to the JSON response containing the array of image data.
  */
 export async function random(count: number = 1, nsfw?: boolean): Promise<any> {
-  const _nsfw = nsfw !== undefined ? `&nsfw=${nsfw}` : "";
-  return (await main(`random/image?count=${count}${_nsfw}`)).images;
+  return (await main(`random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ""}`)).images;
 }
 
 /**
  * Search for specific image using body fields.
- *
- * @remarks
- * This function sends a POST request to the 'images/search' endpoint of the API.
- * It expects an object containing the search fields as the request body.
- * The function returns a Promise that resolves to the JSON response containing the array of image data.
- *
+ * 
  * @param fields - An object containing the search fields.
  * @returns A Promise that resolves to the JSON response containing the array of image data.
+ * 
+ * @remarks
+ * The function sends a POST request to the 'images/search' endpoint of the API with an object containing the search fields as the request body.
+ * The function returns a Promise that resolves to the JSON response containing the array of image data.
  */
 export async function search(fields: object): Promise<any> {
   return (await main("images/search", {
@@ -85,17 +83,16 @@ export async function search(fields: object): Promise<any> {
 /**
  * Uploads an image to the API.
  *
- * @remarks
- * This function sends a POST request to the 'images' endpoint of the API.
- * It expects an authorization token, a File object representing the image, an array of tags, a boolean indicating whether the image is NSFW, and an optional artist name.
- * The function returns a Promise that resolves to the JSON response containing the uploaded image data.
- *
  * @param auth - The authorization token for the user.
  * @param image - The File object representing the image to be uploaded.
  * @param tags - An array of tags associated with the image.
  * @param nsfw - A boolean indicating whether the image is NSFW.
  * @param artist - An optional string representing the artist of the image.
  * @returns A Promise that resolves to the JSON response containing the uploaded image data.
+ * 
+ * @remarks
+ * The function sends a POST request to the 'images' endpoint of the API, expecting an authorization token, a File object representing the image, an array of tags, a boolean indicating whether the image is NSFW, and an optional artist name.
+ * The function returns a Promise that resolves to the JSON response containing the uploaded image data.
  */
 export async function upload(auth: string, image: File, tags: Array<string>, nsfw: boolean, artist?: string): Promise<any> {
   const formData = new FormData();
@@ -113,5 +110,7 @@ export async function upload(auth: string, image: File, tags: Array<string>, nsf
     body: formData
   });
 }
+
+export * from "./buffer.ts";
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call

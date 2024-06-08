@@ -1,0 +1,22 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@om/nekos-moe": "jsr:@om/nekos-moe@0.1.0"
+    },
+    "jsr": {
+      "@om/nekos-moe@0.1.0": {
+        "integrity": "f103a556dfe3c76eba837a0f8143bf15206966812882e83320807db78561a2c9"
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@types/bun@latest",
+        "npm:vitepress@^1.2.3"
+      ]
+    }
+  }
+}
