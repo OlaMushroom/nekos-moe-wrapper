@@ -10,16 +10,16 @@ Some functions are not exposed for usage.
 
 Convert a File object to ArrayBuffer.
 
-```js
+```js{6}
 import * as nekos from "@om/nekos-moe";
 
-const file = new File(["foo n bar"], "foobar.txt", { type: "text/plain" });
+const text = "foo n bar";
+const file = new File([text], "foobar.txt", { type: "text/plain" });
 
 const arrayBuffer = await nekos.from_File_to_ArrayBuffer(file);
 
-const data = new Uint8Array(arrayBuffer);
 const decoder = new TextDecoder("utf-8");
-console.log(decoder.decode(data));
+console.log(decoder.decode(new Uint8Array(arrayBuffer))); // "foo n bar"
 ```
 
 ::: warning
@@ -30,7 +30,7 @@ Currently not working with Bun, likely due to unavailable implementation of the 
 
 Create a File object from local image.
 
-```js
+```js{7}
 import * as nekos from "@om/nekos-moe";
 
 const filePath = "C:/Windows/Web/Screen/img100.jpg"; // Paths are absolute.

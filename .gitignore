@@ -13,6 +13,7 @@ lerna-debug.log*
 # Caches
 
 .cache
+cache
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 
@@ -176,4 +177,3 @@ dist
 
 # User-specific
 test
-cache

@@ -7,8 +7,8 @@
  * @throws Will throw an error if the fetch request fails.
  */
 async function main(endpoint: string, options: object = {}): Promise<any> {
-  const url = (new URL(endpoint, "https://nekos.moe/api/v1/")).toString();
-  console.log(`URL: ${url}`);
+  const url = new URL(endpoint, "https://nekos.moe/api/v1/");
+  console.log(`URL: ${url.toString() }`);
 
   try {
     const res = await fetch(url, options);

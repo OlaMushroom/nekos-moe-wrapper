@@ -10,11 +10,11 @@ All functions are async.
 
 Get authorization token.
 
-```js
+```js{6}
 import * as nekos from "@om/nekos-moe";
 
-const username = "John Doe";
-const password = "johnDoe#69420";
+const username = "ilovecatgirls";
+const password = "^nyaa321^";
 
 const res = await nekos.auth(username, password);
 console.log(res);
@@ -24,7 +24,7 @@ console.log(res);
 
 Get Image by ID.
 
-```js
+```js{5}
 import * as nekos from "@om/nekos-moe";
 
 const imageId = "ry7gPEpg7";
@@ -37,11 +37,11 @@ console.log(res);
 
 Get random Images.
 
-```js
+```js{6}
 import * as nekos from "@om/nekos-moe";
 
 const count = 3; // Optional. Default to 1.
-const nsfw = false; // Optional
+const nsfw = false; // Optional.
 
 const res = await nekos.random(count, nsfw);
 console.log(res);
@@ -51,14 +51,14 @@ console.log(res);
 
 Search Images using custom fields.
 
-```js
+```js{9}
 import * as nekos from "@om/nekos-moe";
 
 const searchFields = {
   artist: "karasusou nano",
   nsfw: false,
   limit: 5
-};
+}
 
 const res = await nekos.search(searchFields);
 console.log(res);
@@ -68,7 +68,7 @@ console.log(res);
 
 Upload Image.
 
-```js
+```js{12}
 import * as nekos from "@om/nekos-moe";
 
 const authToken = "abcxyz123456789";
