@@ -1,116 +1,45 @@
+import { buffer } from "./buffer.ts";
+import { image } from "./image.ts";
+import { user } from "./user.ts";
+
+/**
+ * Handles errors related to fetch requests.
+ *
+ * @param res - The Response object from the fetch request.
+ * @returns A Promise that rejects with an Error object containing the HTTP status and status text, and the JSON message if available.
+ */
+async function errorHandler(res: Response): Promise<any> {
+  let msg = "";
+  const contentType = res.headers.get("content-type");
+  if (contentType !== null && contentType.includes("application/json")) msg = (await res.json()).message;
+  throw Error(`HTTP Error: ${res.status} ${res.statusText}`, { cause: msg });
+}
+
 /**
  * Main function to handle API requests.
  *
  * @param endpoint - The API endpoint to call.
  * @param options - The options for fetch request.
  * @returns A Promise that resolves to the JSON response from the API.
- * @throws Will throw an error if the fetch request fails.
+ * @throws Will throw an error if the fetch request fails.-
  */
-async function main(endpoint: string, options: object = {}): Promise<any> {
+export async function request(endpoint: string, options: object = {}): Promise<any> {
   const url = new URL(endpoint, "https://nekos.moe/api/v1/");
-  console.log(`URL: ${url.toString() }`);
+  console.log(`URL: ${url.toString()}`);
 
   try {
     const res = await fetch(url, options);
-    if (!res.ok) throw Error(`HTTP Error: ${res.status} ${res.statusText}`);
+    if (!res.ok) await errorHandler(res);
     return await res.json();
   } catch (err) {
     throw Error("Error: ", { cause: err });
   }
 }
 
-/**
- * Authenticates the user and returns an authorization token.
- *
- * @param usr - The username of the user.
- * @param pwd - The password of the user.
- * @returns A Promise that resolves to the JSON response containing the authorization token.
- */
-export async function auth(usr: string, pwd: string): Promise<any> {
-  return await main("auth", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      username: usr,
-      password: pwd
-    })
-  });
+export default {
+  buffer: buffer,
+  image: image,
+  user: user
 }
-
-/**
- * Retrieves image data using the provided ID.
- *
- * @param id - The unique identifier of the image.
- * @returns A Promise that resolves to the JSON response containing the image data.
- */
-export async function get(id: string): Promise<any> {
-  return (await main(`images/${id}`)).image;
-}
-
-/**
- * Retrieves random images from the API.
- *
- * @param count - The number of random images to retrieve. Default is 1.
- * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
- * @returns A Promise that resolves to the JSON response containing the array of image data.
- */
-export async function random(count: number = 1, nsfw?: boolean): Promise<any> {
-  return (await main(`random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ""}`)).images;
-}
-
-/**
- * Search for specific image using body fields.
- * 
- * @param fields - An object containing the search fields.
- * @returns A Promise that resolves to the JSON response containing the array of image data.
- * 
- * @remarks
- * The function sends a POST request to the 'images/search' endpoint of the API with an object containing the search fields as the request body.
- * The function returns a Promise that resolves to the JSON response containing the array of image data.
- */
-export async function search(fields: object): Promise<any> {
-  return (await main("images/search", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(fields)
-  })).images;
-}
-
-/**
- * Uploads an image to the API.
- *
- * @param auth - The authorization token for the user.
- * @param image - The File object representing the image to be uploaded.
- * @param tags - An array of tags associated with the image.
- * @param nsfw - A boolean indicating whether the image is NSFW.
- * @param artist - An optional string representing the artist of the image.
- * @returns A Promise that resolves to the JSON response containing the uploaded image data.
- * 
- * @remarks
- * The function sends a POST request to the 'images' endpoint of the API, expecting an authorization token, a File object representing the image, an array of tags, a boolean indicating whether the image is NSFW, and an optional artist name.
- * The function returns a Promise that resolves to the JSON response containing the uploaded image data.
- */
-export async function upload(auth: string, image: File, tags: Array<string>, nsfw: boolean, artist?: string): Promise<any> {
-  const formData = new FormData();
-  formData.append("image", image);
-  formData.append("tags", tags.toString());
-  formData.append("nsfw", nsfw.toString());
-  if (artist !== undefined) formData.append("artist", artist);
-
-  return await main("images", {
-    method: "POST",
-    headers: {
-      "Authorization": auth,
-      "Content-Type": "multipart/form-data"
-    },
-    body: formData
-  });
-}
-
-export * from "./buffer.ts";
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call
