@@ -7,14 +7,11 @@ import { request } from "./index.ts";
  * @param pwd - The password of the user.
  * @returns A Promise that resolves to the JSON response containing the authorization token.
  */
-async function auth(usr: string, pwd: string): Promise<any> {
+async function auth(username: string, password: string): Promise<any> {
   return await request("auth", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      username: usr,
-      password: pwd
-    })
+    body: JSON.stringify({ username, password })
   });
 }
 
