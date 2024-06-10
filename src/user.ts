@@ -42,7 +42,7 @@ async function search(fields: object = {}): Promise<any> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(fields)
-  })).images;
+  })).users;
 }
 
 export const user = { auth, get, search }
