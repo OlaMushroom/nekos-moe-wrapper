@@ -45,8 +45,4 @@ async function search(fields: object = {}): Promise<any> {
   })).images;
 }
 
-export const user = {
-  auth: auth,
-  get: get,
-  search: search
-}
+export const user = { auth, get, search }

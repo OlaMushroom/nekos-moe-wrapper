@@ -71,7 +71,4 @@ function createFile(filePath: string, fileName: string, fileType: "image/jpeg" |
   }
 }
 
-export const buffer = {
-  from_File_to_ArrayBuffer: from_File_to_ArrayBuffer,
-  createFile: createFile
-}
+export const buffer = { createFile, from_File_to_ArrayBuffer }

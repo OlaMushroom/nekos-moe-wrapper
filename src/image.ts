@@ -68,9 +68,4 @@ async function upload(auth: string, image: File, tags: Array<string>, nsfw: bool
   });
 }
 
-export const image = {
-  get: get,
-  random: random,
-  search: search,
-  upload: upload
-}
+export const image = { get, random, search, upload }

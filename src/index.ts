@@ -36,10 +36,6 @@ export async function request(endpoint: string, options: object = {}): Promise<a
   }
 }
 
-export default {
-  buffer: buffer,
-  image: image,
-  user: user
-}
+export default { buffer, image, user }
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call
