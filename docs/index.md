@@ -41,6 +41,6 @@
   import nekos from "@om/nekos-moe";
   ```
 
-## What's Next?
+## What's next?
 
-Check out some [usage examples](/image). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the [original API documentation](https://docs.nekos.moe).
+Check out some [usage examples](/image). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).

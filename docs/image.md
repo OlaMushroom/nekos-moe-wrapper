@@ -1,6 +1,6 @@
 # `image` property
 
-### Contains methods for working with [Post / Image](https://docs.nekos.moe/structures.html#post-image-data) data.
+**Contains methods for working with [Post / Image](https://docs.nekos.moe/structures.html#post-image-data) data.**
 
 ```js
 import nekos from "@om/nekos-moe";
@@ -8,11 +8,13 @@ import nekos from "@om/nekos-moe";
 console.log(nekos.image);
 ```
 
+[[toc]]
+
 ## `image.get()`
 
 Get an `Image` by ID.
 
-```js{5}
+```js:line-numbers{5}
 import nekos from "@om/nekos-moe";
 
 const imageID = "ry7gPEpg7";
@@ -25,7 +27,7 @@ console.log(data);
 
 Get random `Image`s.
 
-```js{6}
+```js:line-numbers{6}
 import nekos from "@om/nekos-moe";
 
 const count = 3; // Optional. Default to 1.
@@ -39,7 +41,7 @@ console.log(data);
 
 Search `Image`s using custom fields.
 
-```js{9}
+```js:line-numbers{9}
 import nekos from "@om/nekos-moe";
 
 const searchFields = {
@@ -56,13 +58,13 @@ console.log(data);
 
 Upload an `Image`.
 
-```js{12}
+```js:line-numbers{12}
 import nekos from "@om/nekos-moe";
 
 const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
 
 // Refer to buffer.createFile().
-const imageFile = nekos.createFile("path/img.jpg", "img.jpg", "image/jpeg");
+const imageFile = nekos.buffer.createFile("path/img.jpg", "img.jpg", "image/jpeg");
 
 const tags = ["An", "array", "of", "tags"];
 const nsfw = false;

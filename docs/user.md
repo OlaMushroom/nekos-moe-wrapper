@@ -1,6 +1,6 @@
 # `user` property
 
-### Contains methods for working with [User](https://docs.nekos.moe/structures.html#user-data) data.
+**Contains methods for working with [User](https://docs.nekos.moe/structures.html#user-data) data.**
 
 ```js
 import nekos from "@om/nekos-moe";
@@ -8,11 +8,13 @@ import nekos from "@om/nekos-moe";
 console.log(nekos.user);
 ```
 
+[[toc]]
+
 ## `user.auth.get()`
 
 Get authorization token.
 
-```js{6}
+```js:line-numbers{6}
 import nekos from "@om/nekos-moe";
 
 const username = "ilovecatgirls";
@@ -26,7 +28,7 @@ console.log(data);
 
 Regenerate authorization token.
 
-```js{5}
+```js:line-numbers{5}
 import nekos from "@om/nekos-moe";
 
 const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
@@ -42,7 +44,7 @@ The new authorization token will not be returned.
 
 Get a `User` by ID.
 
-```js{5}
+```js:line-numbers{5}
 import nekos from "@om/nekos-moe";
 
 const userID = "BkCBy21se";
@@ -52,9 +54,9 @@ console.log(data);
 ```
 
 ::: tip
-If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
+You can pass "@me" as the ID, and the current user's data will be returned. However, an authorization token is required.
 
-```js{6}
+```js:line-numbers{6}
 import nekos from "@om/nekos-moe";
 
 const userID = "@me";
@@ -69,7 +71,7 @@ console.log(data);
 
 Search `User`s using custom fields.
 
-```js{8}
+```js:line-numbers{8}
 import nekos from "@om/nekos-moe";
 
 const searchFields = {

@@ -1,6 +1,6 @@
 # `buffer` property
 
-### Contains specific methods for working with `ArrayBuffer`, `Buffer`, and `File` objects.
+**Contains specific methods for working with `ArrayBuffer`, `Buffer`, and `File` objects.**
 
 ```js
 import nekos from "@om/nekos-moe";
@@ -8,11 +8,13 @@ import nekos from "@om/nekos-moe";
 console.log(nekos.buffer);
 ```
 
+[[toc]]
+
 ## `buffer.createFile()`
 
 Create a `File` object from a local image.
 
-```js{7}
+```js:line-numbers{7}
 import nekos from "@om/nekos-moe";
 
 const filePath = "C:/Windows/Web/Screen/img100.jpg"; // Paths are absolute.
@@ -25,13 +27,30 @@ const imageFile = nekos.buffer.createFile(filePath, fileName, fileType);
 const data = await nekos.upload("token", imageFile, ["tags"], false, "artist");
 console.log(data);
 ```
-## `buffer.fromArrayBuffertoBuffer`
+## `buffer.fromArrayBuffertoBuffer()`
 
-## `buffer.fromBuffertoArrayBuffer`
+Convert an `ArrayBuffer` to a `Buffer`.
+
+```js:line-numbers{10}
+import { writeFileSync } from "node:fs";
+import nekos from "@om/nekos-moe";
+
+// Refer to buffer.createFile().
+const imageFile = nekos.buffer.createFile("path/img.jpg", "img.jpg", "image/jpeg");
+
+//Refer to buffer.fromFiletoArrayBuffer()
+const arrayBuffer = await nekos.buffer.fromFiletoArrayBuffer(file);
+
+const buffer = nekos.buffer.fromArrayBuffertoBuffer(arrayBuffer);
+
+writeFileSync("./img.jpg", buffer);
+```
+
+## `buffer.fromBuffertoArrayBuffer()`
 
 Convert a `Buffer` to an `ArrayBuffer`.
 
-```js{6}
+```js:line-numbers{6}
 import { readFileSync, writeFileSync } from "node:fs";
 import nekos from "@om/nekos-moe";
 
@@ -46,7 +65,7 @@ writeFileSync("./img.jpg", new Uint8Array(arrayBuffer));
 
 Convert a `File` object to an `ArrayBuffer`.
 
-```js{6}
+```js:line-numbers{6}
 import nekos from "@om/nekos-moe";
 
 const text = "foo n bar";

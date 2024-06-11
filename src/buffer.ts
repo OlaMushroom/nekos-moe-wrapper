@@ -11,8 +11,8 @@ export const buffer = {
    */
   fromArrayBuffertoBuffer(arrayBuffer: ArrayBuffer): Buffer {
     const buffer = Buffer.alloc(arrayBuffer.byteLength);
-    const arr = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; ++i) buffer[i] = arr[i];
+    const view = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < buffer.length; ++i) buffer[i] = view[i];
     return buffer;
   },
 
@@ -26,8 +26,8 @@ export const buffer = {
    */
   fromBuffertoArrayBuffer(buffer: Buffer): ArrayBuffer {
     const arrayBuffer = new ArrayBuffer(buffer.length);
-    const arr = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; ++i) arr[i] = buffer[i];
+    const view = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < buffer.length; ++i) view[i] = buffer[i];
     return arrayBuffer;
   },
 
