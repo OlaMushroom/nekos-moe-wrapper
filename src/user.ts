@@ -23,7 +23,7 @@ export const user = {
      * @returns A Promise that resolves to the JSON response containing the regenerated authorization token.
      * @remarks
      * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
-     * The function returns a Promise that resolves to the JSON response containing the regenerated authorization token.
+     * The new authorization token will not be returned.
      */
     async regen(auth: string): Promise<any> {
       return await request("auth", {

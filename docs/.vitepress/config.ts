@@ -6,9 +6,6 @@ export default defineConfig({
   description: "JS/TS wrapper for Nekos.moe API",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: '', link: '/' },
-    ],
     sidebar: [
       {
         items: [
@@ -18,8 +15,9 @@ export default defineConfig({
       {
         text: 'Usage Examples',
         items: [
-          { text: 'index.ts', link: '/indexts' },
-          { text: 'buffer.ts', link: '/bufferts' }
+          { text: 'image', link: '/image' },
+          { text: 'user', link: '/user' },
+          // { text: 'buffer', link: '/buffer' }
         ]
       }
     ],

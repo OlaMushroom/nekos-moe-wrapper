@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 
-export const buffer ={
+export const buffer = {
   /**
    * Converts an ArrayBuffer to a Buffer.
    *

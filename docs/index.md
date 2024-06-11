@@ -5,7 +5,7 @@
 - **Option 1**: Using `jsr:` specifier with [Deno](https://deno.com)
 
   ```js
-  import * as nekos from "jsr:@om/nekos-moe";
+  import nekos from "jsr:@om/nekos-moe";
   ```
 
 - **Option 2**: Manually adding package
@@ -38,7 +38,7 @@
   then import the package:
 
   ```js
-  import * as nekos from "@om/nekos-moe";
+  import nekos from "@om/nekos-moe";
   ```
 
 ## What's Next?

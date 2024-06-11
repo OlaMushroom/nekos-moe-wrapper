@@ -1,4 +1,4 @@
-import { buffer } from "./buffer.ts";
+//import { buffer } from "./buffer.ts";
 import { image } from "./image.ts";
 import { user } from "./user.ts";
 
@@ -36,6 +36,6 @@ export async function request(endpoint: string, options: object = {}): Promise<a
   }
 }
 
-export default { buffer, image, user }
+export default { image, user }
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call
