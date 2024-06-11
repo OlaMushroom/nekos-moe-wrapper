@@ -6,9 +6,9 @@ import { user } from "./user.ts";
  * Handles errors related to fetch requests.
  *
  * @param res - The Response object from the fetch request.
- * @returns A Promise that rejects with an Error object containing the HTTP status and status text, and the JSON message if available.
+ * @returns A Promise with an Error object containing the HTTP status and status text, and the JSON message if available.
  */
-async function errorHandler(res: Response): Promise<any> {
+async function errorHandler(res: Response): Promise<Error> {
   let msg = "";
   const contentType = res.headers.get("content-type");
   if (contentType !== null && contentType.includes("application/json")) msg = (await res.json()).message;
