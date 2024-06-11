@@ -43,4 +43,4 @@
 
 ## What's Next?
 
-Check out some [usage examples](/indexts). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the [original API documentation](https://docs.nekos.moe).
+Check out some [usage examples](/image). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the [original API documentation](https://docs.nekos.moe).
