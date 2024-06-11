@@ -1,6 +1,6 @@
 import { request } from "./index.ts";
 
-export const image ={
+export const image: object = {
   /**
    * Retrieves an image data using the provided ID.
    *

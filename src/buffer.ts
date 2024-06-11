@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 
-export const buffer = {
+export const buffer: any = {
   /**
    * Converts an ArrayBuffer to a Buffer.
    *
@@ -64,7 +64,7 @@ export const buffer = {
    */
   createFile(filePath: string, fileName: string, fileType: "image/jpeg" | "image/png"): File {
     try {
-      const imageFile = new File([this.fromBuffertoArrayBuffer(readFileSync(filePath))], fileName, { type: fileType });
+      const imageFile = new File([buffer.fromBuffertoArrayBuffer(readFileSync(filePath))], fileName, { type: fileType });
       console.log("File created successfully.");
       return imageFile;
     } catch (err) {

@@ -1,6 +1,6 @@
 import { request } from "./index.ts";
 
-export const user = {
+export const user: object = {
   auth: {
     /**
      * Returns authorization token.
@@ -16,6 +16,7 @@ export const user = {
         body: JSON.stringify({ username, password })
       });
     },
+
     /**
      * Regenerates the authorization token.
      *
@@ -32,14 +33,6 @@ export const user = {
       });
     }
   },
-
-/**
- * Returns authorization token.
- *
- * @param username - The username of the user.
- * @param password - The password of the user.
- * @returns A Promise that resolves to the JSON response containing the authorization token.
- */
 
   /**
    * Retrieves a user's information using provided ID.
