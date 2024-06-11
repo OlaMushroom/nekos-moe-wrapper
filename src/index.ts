@@ -36,6 +36,10 @@ export async function request(endpoint: string, options: object = {}): Promise<a
   }
 }
 
+/**
+ * Default exports the modules.
+ * @public
+ */
 export default { image, user }
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call

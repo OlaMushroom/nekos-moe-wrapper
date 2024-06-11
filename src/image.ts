@@ -1,5 +1,8 @@
 import { request } from "./index.ts";
 
+/**
+ * An object with methods for interacting with the image-related API endpoints.
+ */
 export const image: object = {
   /**
    * Retrieves an image data using the provided ID.

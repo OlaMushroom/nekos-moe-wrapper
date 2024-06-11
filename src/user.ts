@@ -1,6 +1,12 @@
 import { request } from "./index.ts";
 
+/**
+ * An object with methods for interacting with user-related API endpoints.
+ */
 export const user: object = {
+  /**
+   * An object with methods for authorization.
+   */
   auth: {
     /**
      * Returns authorization token.

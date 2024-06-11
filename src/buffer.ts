@@ -1,5 +1,12 @@
 import { readFileSync } from "node:fs";
 
+/**
+ * A utility module for working with buffers and files.
+ *
+ * @remarks
+ * This module provides methods for converting between ArrayBuffer and Buffer, and from File object to ArrayBuffer,
+ * as well as creating a File object from a given file path, file name, and file type.
+ */
 export const buffer: any = {
   /**
    * Converts an ArrayBuffer to a Buffer.
