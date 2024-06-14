@@ -1,3 +1,6 @@
+---
+search: false
+---
 # `buffer` property
 
 **Contains specific methods for working with `ArrayBuffer`, `Buffer`, and `File` objects.**

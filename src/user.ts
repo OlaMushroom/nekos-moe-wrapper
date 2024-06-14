@@ -1,45 +1,9 @@
-import { request } from "./index.ts";
+import { request } from "./main.ts";
 
 /**
  * An object with methods for interacting with user-related API endpoints.
  */
-export const user: object = {
-  /**
-   * An object with methods for authorization.
-   */
-  auth: {
-    /**
-     * Returns authorization token.
-     *
-     * @param username - The username of the user.
-     * @param password - The password of the user.
-     * @returns A Promise that resolves to the JSON response containing the authorization token.
-     */
-    async get(username: string, password: string): Promise<any> {
-      return await request("auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
-    },
-
-    /**
-     * Regenerates the authorization token.
-     *
-     * @param auth - The current authorization token.
-     * @returns A Promise that resolves to the JSON response containing the regenerated authorization token.
-     * @remarks
-     * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
-     * The new authorization token will not be returned.
-     */
-    async regen(auth: string): Promise<any> {
-      return await request("auth", {
-        method: "POST",
-        headers: { "Authorization": auth }
-      });
-    }
-  },
-
+export class User {
   /**
    * Retrieves a user's information using provided ID.
    *
@@ -50,11 +14,11 @@ export const user: object = {
    * If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
    * The function returns a Promise that resolves to the JSON response containing the user's information.
    */
-  async get(id: string, auth?: string): Promise<any> {
+  static async get(id: string, auth?: string): Promise<any> {
     const headers = new Headers();
-    if (auth !== undefined) headers.append('Authorization', auth);
+    if (auth !== undefined) headers.append("Authorization", auth);
     return (await request(`user/${id}`, { headers })).user;
-  },
+  }
 
   /**
    * Performs a search operation on the user's data.
@@ -65,11 +29,13 @@ export const user: object = {
    * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search fields as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of users.
    */
-  async search(fields: object = {}): Promise<any> {
-    return (await request("users/search", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(fields)
-    })).users;
+  static async search(fields: object = {}): Promise<any> {
+    return (
+      await request("users/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      })
+    ).users;
   }
 }
