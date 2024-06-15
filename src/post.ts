@@ -4,13 +4,6 @@ import { request } from "./main.ts";
  * Post class with static methods for interacting with the API for image-related operations.
  */
 export class Post {
-  id: string;
-  fields: object;
-  constructor(id: string = "", fields: object = {}) {
-    this.id = id;
-    this.fields = fields;
-  }
-
   /**
    * Retrieves an image data using the provided ID.
    *

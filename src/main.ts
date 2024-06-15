@@ -4,7 +4,7 @@
  * @param res - The Response object from the fetch request.
  * @returns A Promise with an Error object containing the HTTP status and status text, and the JSON message if available.
  */
-async function errorHandler(res: Response) {
+async function errorHandler(res: Response): Promise<Error> {
   let msg = "";
   const contentType = res.headers.get("content-type");
   if (contentType !== null && contentType.includes("application/json"))
@@ -31,7 +31,7 @@ export async function request(
     const res = await fetch(url, options);
     if (!res.ok) await errorHandler(res);
     return await res.json();
-  } catch (err) {
-    throw Error("Error: ", { cause: err });
+  } catch (error) {
+    throw error;
   }
 }

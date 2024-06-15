@@ -1,5 +1,10 @@
-import { describe, test, expect } from "@jest/globals";
+import { expect, test, describe } from "vitest";
 import { Post, User } from '../src/index.ts';
+
+function getRandomIntInclusive(min: number, max: number) {
+  const minCeiled = Math.ceil(min);
+  return Math.floor(Math.random() * (Math.floor(max) - minCeiled + 1) + minCeiled);
+}
 
 // Test: Post.get() method
 describe('Post.get()', () => {
