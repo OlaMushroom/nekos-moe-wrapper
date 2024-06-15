@@ -4,6 +4,13 @@ import { request } from "./main.ts";
  * An object with methods for authorization.
  */
 export class Auth {
+  username: string;
+  password: string;
+  constructor(username: string, password: string) {
+    this.username = username;
+    this.password = password;
+  }
+
   /**
    * Returns authorization token.
    *
@@ -11,11 +18,14 @@ export class Auth {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
-  static async get(username: string, password: string): Promise<any> {
+  async get(): Promise<any> {
     return await request("auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({
+        username: this.username,
+        password: this.password,
+      }),
     });
   }
 
