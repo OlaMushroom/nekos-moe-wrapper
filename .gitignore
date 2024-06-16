@@ -176,5 +176,5 @@ dist
 .DS_Store
 
 # User-specific
-test/test.ts
 output
+test/tst.ts

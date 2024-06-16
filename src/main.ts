@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+
 /**
  * Handles errors related to fetch requests.
  *
@@ -33,5 +35,21 @@ export async function request(
     return await res.json();
   } catch (error) {
     throw error;
+  }
+}
+
+export function createFile(
+  filePath: string,
+  fileName: string,
+  fileType: "image/jpeg" | "image/png"
+): File {
+  try {
+    const imageFile = new File([readFileSync(filePath)], fileName, {
+      type: fileType,
+    });
+    console.log("File created successfully.");
+    return imageFile;
+  } catch (err) {
+    throw Error("Error: ", { cause: err });
   }
 }

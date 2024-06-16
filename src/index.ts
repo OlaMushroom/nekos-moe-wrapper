@@ -1,6 +1,6 @@
+export { createFile } from "./main.ts"
 export { Post } from "./post.ts";
 export { User, Auth } from "./user.ts";
-export { Utility } from "./utility.ts";
 
 export const info = {
   website: {
