@@ -42,7 +42,7 @@ const buffer = Buffer.from(
   ).arrayBuffer()
 );
 test("Buffer check.", () => {
-  expect(buffer.equals(readFileSync("C:/Windows/Web/Screen/img100.jpg"))).toBe(
-    true
-  );
+  expect(buffer.equals(readFileSync(
+    "C:/Windows/Web/Screen/img100.jpg"
+  ))).toBe(true);
 });
