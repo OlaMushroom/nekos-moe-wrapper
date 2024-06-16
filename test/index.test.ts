@@ -6,15 +6,23 @@ function getRndIntIncl(min: number, max: number): number {
   return Math.floor(Math.random() * (Math.floor(max) - minCeiled + 1) + minCeiled);
 }
 
+const rndPostCnt = getRndIntIncl(1, 50);
+const rndUserCnt = getRndIntIncl(1, 100);
+
 describe('Post.get()', () => {
-  test("Image's IDs are the same.", async () => {
+  test("Post's IDs are the same.", async () => {
     expect((await Post.get("ry7gPEpg7")).id).toBe("ry7gPEpg7");
   })
 });
 
-const rndPostCnt = getRndIntIncl(1, 50);
+describe('Post.random()', () => {
+  test("Post counts are the same.", async () => {
+    expect((await Post.random(rndPostCnt)).length).toBe(rndPostCnt);
+  })
+});
+
 describe('Post.search()', () => {
-  test("Search counts are the same.", async () => {
+  test("Post counts are the same.", async () => {
     expect((await Post.search({ limit: rndPostCnt})).length).toBe(rndPostCnt);
   })
 });
@@ -25,7 +33,6 @@ describe("User.get()", () => {
   });
 });
 
-const rndUserCnt = getRndIntIncl(1, 100);
 describe("User.search()", () => {
   test("User counts are the same.", async () => {
     expect((await User.search({ limit: rndUserCnt})).length).toBe(rndUserCnt);

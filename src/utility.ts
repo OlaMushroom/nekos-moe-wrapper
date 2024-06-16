@@ -5,36 +5,6 @@ import { readFileSync } from "node:fs";
  */
 export class Utility {
   /**
-   * Converts an ArrayBuffer to a Buffer.
-   *
-   * @param arrayBuffer - The ArrayBuffer to convert.
-   * @returns A Buffer representation of the input ArrayBuffer.
-   * @remarks
-   * The function uses Node.js API to convert from ArrayBuffer to Buffer.
-   */
-  static fromArrayBufferToBuffer(arrayBuffer: ArrayBuffer): Buffer {
-    const buffer = Buffer.alloc(arrayBuffer.byteLength);
-    const view = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; ++i) buffer[i] = view[i];
-    return buffer;
-  }
-
-  /**
-   * Converts a Buffer to an ArrayBuffer.
-   *
-   * @param buffer - The Buffer to convert.
-   * @returns An ArrayBuffer representation of the input Buffer.
-   * @remarks
-   * The function uses Node.js API to convert from Buffer to ArrayBuffer.
-   */
-  static fromBufferToArrayBuffer(buffer: Buffer): ArrayBuffer {
-    const arrayBuffer = new ArrayBuffer(buffer.length);
-    const view = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; ++i) view[i] = buffer[i];
-    return arrayBuffer;
-  }
-
-  /**
    * Converts a File object to an ArrayBuffer.
    *
    * @param file - The File object to convert.
@@ -71,11 +41,9 @@ export class Utility {
     fileType: "image/jpeg" | "image/png"
   ): File {
     try {
-      const imageFile = new File(
-        [Utility.fromBufferToArrayBuffer(readFileSync(filePath))],
-        fileName,
-        { type: fileType }
-      );
+      const imageFile = new File([readFileSync(filePath)], fileName, {
+        type: fileType,
+      });
       console.log("File created successfully.");
       return imageFile;
     } catch (err) {

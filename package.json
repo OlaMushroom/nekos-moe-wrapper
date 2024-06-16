@@ -4,6 +4,7 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
+    "@vitest/ui": "^1.6.0",
     "vitepress": "^1.2.3",
     "vitest": "^1.6.0"
   },
