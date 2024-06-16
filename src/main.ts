@@ -22,10 +22,7 @@ async function errorHandler(res: Response): Promise<Error> {
  * @returns A Promise that resolves to the JSON response from the API.
  * @throws Will throw an error if the fetch request fails.-
  */
-export async function request(
-  endpoint: string,
-  options: object = {}
-): Promise<any> {
+async function request(endpoint: string, options: object = {}): Promise<any> {
   const url = new URL(endpoint, "https://nekos.moe/api/v1/");
   console.log(`URL: ${url.toString()}`);
 
@@ -38,7 +35,7 @@ export async function request(
   }
 }
 
-export function createFile(
+function createFile(
   filePath: string,
   fileName: string,
   fileType: "image/jpeg" | "image/png"
@@ -53,3 +50,5 @@ export function createFile(
     throw Error("Error: ", { cause: err });
   }
 }
+
+export { request, createFile };

@@ -3,7 +3,7 @@ import { request } from "./main.ts";
 /**
  * Post class with static methods for interacting with the API for image-related operations.
  */
-export class Post {
+class Post {
   /**
    * Retrieves an image data using the provided ID.
    *
@@ -86,3 +86,5 @@ export class Post {
     });
   }
 }
+
+export { Post };

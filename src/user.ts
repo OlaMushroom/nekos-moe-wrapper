@@ -3,7 +3,7 @@ import { request } from "./main.ts";
 /**
  * A class with methods for interacting with user-related API endpoints.
  */
-export class User {
+class User {
   /**
    * Retrieves a user's information using provided ID.
    *
@@ -43,7 +43,7 @@ export class User {
 /**
  * A class with methods for authorization.
  */
-export class Auth {
+class Auth {
   /**
    * Returns authorization token.
    *
@@ -75,3 +75,5 @@ export class Auth {
     });
   }
 }
+
+export { User, Auth };
