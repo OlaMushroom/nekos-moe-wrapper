@@ -1,4 +1,5 @@
 import { request } from "./main.ts";
+import type { UserData } from "./types.ts";
 
 /**
  * A class with methods for interacting with user-related API endpoints.
@@ -14,7 +15,7 @@ class User {
    * If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
    * The function returns a Promise that resolves to the JSON response containing the user's information.
    */
-  static async get(id: string, auth?: string): Promise<any> {
+  static async get(id: string, auth?: string): Promise<UserData> {
     const headers = new Headers();
     if (auth !== undefined) headers.append("Authorization", auth);
     return (await request(`user/${id}`, { headers })).user;
@@ -29,7 +30,7 @@ class User {
    * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search fields as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of users.
    */
-  static async search(fields: object = {}): Promise<any> {
+  static async search(fields: object = {}): Promise<UserData[]> {
     return (
       await request("users/search", {
         method: "POST",
@@ -51,12 +52,12 @@ class Auth {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
-  static async get(username: string, password: string): Promise<any> {
-    return await request("auth", {
+  static async get(username: string, password: string): Promise<string> {
+    return (await request("auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
-    });
+    })).token;
   }
 
   /**
@@ -68,8 +69,8 @@ class Auth {
    * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
    * The new authorization token will not be returned.
    */
-  static async regen(token: string): Promise<any> {
-    return await request("auth", {
+  static async regen(token: string): Promise<void> {
+    await request("auth", {
       method: "POST",
       headers: { Authorization: token },
     });

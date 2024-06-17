@@ -9,8 +9,11 @@ import { readFileSync } from "node:fs";
 async function errorHandler(res: Response): Promise<Error> {
   let msg = "";
   const contentType = res.headers.get("content-type");
-  if (contentType !== null && contentType.includes("application/json"))
-    msg = (await res.json()).message;
+  if (contentType !== null && contentType.includes("application/json")) {
+    const data = await res.json();
+    msg = data.message;
+    if ("id" in data) msg += `\nID: ${data.id}`;
+  }
   throw Error(`HTTP Error: ${res.status} ${res.statusText}`, { cause: msg });
 }
 

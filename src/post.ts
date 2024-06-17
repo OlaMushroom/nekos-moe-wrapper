@@ -1,4 +1,5 @@
 import { request } from "./main.ts";
+import type { PostData } from "./types.ts";
 
 /**
  * Post class with static methods for interacting with the API for image-related operations.
@@ -10,7 +11,7 @@ class Post {
    * @param id - The unique identifier of the image.
    * @returns A Promise that resolves to the JSON response containing the image data.
    */
-  static async get(id: string): Promise<any> {
+  static async get(id: string): Promise<PostData> {
     return (await request(`images/${id}`)).image;
   }
 
@@ -21,7 +22,7 @@ class Post {
    * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
    * @returns A Promise that resolves to the JSON response containing an array of images.
    */
-  static async random(count: number = 1, nsfw?: boolean): Promise<any> {
+  static async random(count: number = 1, nsfw?: boolean): Promise<PostData[]> {
     return (
       await request(
         `random/image?count=${count}${
@@ -40,7 +41,7 @@ class Post {
    * The function sends a POST request to the 'images/search' endpoint of the API with an object containing the search fields as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of images.
    */
-  static async search(fields: object = {}): Promise<any> {
+  static async search(fields: object = {}): Promise<PostData[]> {
     return (
       await request("images/search", {
         method: "POST",
@@ -66,7 +67,7 @@ class Post {
   static async upload(
     auth: string,
     image: File,
-    tags: Array<string>,
+    tags: string[],
     nsfw: boolean,
     artist?: string
   ): Promise<any> {
