@@ -3,6 +3,9 @@ export { post } from './post.ts';
 export { user, auth } from './user.ts';
 export type { PostFields, UserFields, UploadFields } from './types.ts';
 
+/**
+ * Contains various information including URLs, repositories, and documentation.
+ */
 export const info = {
   website: {
     url: 'https://nekos.moe',
