@@ -42,7 +42,7 @@ const user: any = {
 };
 
 /**
- * A class with methods for authorization.
+ * Methods for authorization.
  */
 const auth: any = {
   /**

@@ -38,6 +38,14 @@ async function request(endpoint: string, options: object = {}): Promise<any> {
   }
 }
 
+/**
+ * Creates a new File object from a given file path.
+ *
+ * @param filePath - The path to the file to be read.
+ * @param fileName - The name of the new File object.
+ * @param fileType - The MIME type of the file. Must be either 'image/jpeg' or 'image/png'.
+ * @returns A new File object.
+ */
 function createFile(
   filePath: string,
   fileName: string,

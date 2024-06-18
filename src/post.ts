@@ -7,7 +7,7 @@ import type {
 } from './types.ts';
 
 /**
- * Post class with static methods for interacting with the API for image-related operations.
+ * Methods for interacting with the API for image-related operations.
  */
 const post: any = {
   /**
