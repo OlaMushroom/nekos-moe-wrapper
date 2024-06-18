@@ -64,7 +64,7 @@ type UploadFields = {
   image: File;
   nsfw: boolean;
   artist?: string;
-  tags: string[];
+  tags: Array<string>;
 };
 
 export type {

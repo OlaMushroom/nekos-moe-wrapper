@@ -9,7 +9,7 @@ import type {
 /**
  * Methods for interacting with the API for image-related operations.
  */
-const post: any = {
+export const post = {
   /**
    * Retrieves an image data using the provided ID.
    *
@@ -86,5 +86,3 @@ const post: any = {
     });
   }
 };
-
-export { post };
