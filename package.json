@@ -3,6 +3,7 @@
   "module": "./src/index.ts",
   "type": "module",
   "devDependencies": {
+    "@biomejs/biome": "1.8.1",
     "@types/bun": "latest",
     "@vitest/ui": "^1.6.0",
     "vitepress": "^1.2.3",
@@ -16,5 +17,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test": "vitest"
-  }
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
 }

@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync } from 'node:fs';
 
 /**
  * Handles errors related to fetch requests.
@@ -7,12 +7,12 @@ import { readFileSync } from "node:fs";
  * @returns A Promise with an Error object containing the HTTP status and status text, and the JSON message if available.
  */
 async function errorHandler(res: Response): Promise<Error> {
-  let msg = "";
-  const contentType = res.headers.get("content-type");
-  if (contentType !== null && contentType.includes("application/json")) {
+  let msg = '';
+  const contentType = res.headers.get('content-type');
+  if (contentType?.includes('application/json')) {
     const data = await res.json();
     msg = data.message;
-    if ("id" in data) msg += `\nID: ${data.id}`;
+    if ('id' in data) msg += `\nID: ${data.id}`;
   }
   throw Error(`HTTP Error: ${res.status} ${res.statusText}`, { cause: msg });
 }
@@ -26,31 +26,31 @@ async function errorHandler(res: Response): Promise<Error> {
  * @throws Will throw an error if the fetch request fails.-
  */
 async function request(endpoint: string, options: object = {}): Promise<any> {
-  const url = new URL(endpoint, "https://nekos.moe/api/v1/");
+  const url = new URL(endpoint, 'https://nekos.moe/api/v1/');
   console.log(`URL: ${url.toString()}`);
 
   try {
     const res = await fetch(url, options);
     if (!res.ok) await errorHandler(res);
     return await res.json();
-  } catch (error) {
-    throw error;
+  } catch (err) {
+    throw Error('Error: ', { cause: err });
   }
 }
 
 function createFile(
   filePath: string,
   fileName: string,
-  fileType: "image/jpeg" | "image/png"
+  fileType: 'image/jpeg' | 'image/png'
 ): File {
   try {
     const imageFile = new File([readFileSync(filePath)], fileName, {
-      type: fileType,
+      type: fileType
     });
-    console.log("File created successfully.");
+    console.log('File created successfully.');
     return imageFile;
   } catch (err) {
-    throw Error("Error: ", { cause: err });
+    throw Error('Error: ', { cause: err });
   }
 }
 

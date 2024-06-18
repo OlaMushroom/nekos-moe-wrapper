@@ -1,3 +1,4 @@
+// Data types.
 type PostData = {
   id: string;
   approver?: {
@@ -33,13 +34,20 @@ type UserData = {
   verified?: boolean;
 };
 
+type UploadData = {
+  image: PostData;
+  image_url: string;
+  post_url: string;
+};
+
+// Search fields types.
 type PostFields = {
   id?: string;
   nsfw?: boolean;
-  uploader?: string | {};
+  uploader?: string | object;
   artist?: string;
-  tags: string[];
-  sort?: "newest" | "oldest" | "likes" | "relevance";
+  tags?: string[];
+  sort?: 'newest' | 'oldest' | 'likes' | 'relevance';
   posted_before?: number; // milliseconds
   posted_after?: number; // milliseconds
   skip?: number;
@@ -59,4 +67,11 @@ type UploadFields = {
   tags: string[];
 };
 
-export type { PostData, UserData, PostFields, UserFields, UploadFields };
+export type {
+  PostData,
+  UserData,
+  UploadData,
+  PostFields,
+  UserFields,
+  UploadFields
+};

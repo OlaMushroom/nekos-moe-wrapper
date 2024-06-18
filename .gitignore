@@ -177,4 +177,4 @@ dist
 
 # User-specific
 output
-test/tst.ts
+tst
