@@ -9,7 +9,7 @@ import type {
 /**
  * Post class with static methods for interacting with the API for image-related operations.
  */
-const post = {
+const post: any = {
   /**
    * Retrieves an image data using the provided ID.
    *

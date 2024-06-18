@@ -2,9 +2,9 @@ import { request } from './main.ts';
 import type { UserData, UserFields } from './types.ts';
 
 /**
- * A class with methods for interacting with user-related API endpoints.
+ * Methods for interacting with user-related API endpoints.
  */
-const user = {
+const user: any = {
   /**
    * Retrieves a user's information using provided ID.
    *
@@ -44,7 +44,7 @@ const user = {
 /**
  * A class with methods for authorization.
  */
-const auth = {
+const auth: any = {
   /**
    * Returns authorization token.
    *
