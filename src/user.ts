@@ -18,7 +18,8 @@ const user: any = {
   async get(id: string, token?: string): Promise<UserData> {
     const headers = new Headers();
     if (token !== undefined) headers.append('Authorization', token);
-    return (await request(`user/${id}`, { headers })).user;
+    const data = (await request(`user/${id}`, { headers })) as { user: UserData };
+    return data.user;
   },
 
   /**
@@ -31,13 +32,12 @@ const user: any = {
    * The function returns a Promise that resolves to the JSON response containing an array of users.
    */
   async search(fields: UserFields = {}): Promise<UserData[]> {
-    return (
-      await request('users/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fields)
-      })
-    ).users;
+    const data = (await request('users/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fields)
+    })) as { users: UserData[] };
+    return data.users;
   }
 };
 
@@ -53,13 +53,12 @@ const auth: any = {
    * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
   async get(username: string, password: string): Promise<string> {
-    return (
-      await request('auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      })
-    ).token;
+    const data = (await request('auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })) as { token: string };
+    return data.token;
   },
 
   /**

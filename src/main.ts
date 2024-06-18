@@ -25,7 +25,7 @@ async function errorHandler(res: Response): Promise<Error> {
  * @returns A Promise that resolves to the JSON response from the API.
  * @throws Will throw an error if the fetch request fails.-
  */
-async function request(endpoint: string, options: object = {}): Promise<any> {
+async function request(endpoint: string, options: object = {}): Promise<unknown> {
   const url = new URL(endpoint, 'https://nekos.moe/api/v1/');
   console.log(`URL: ${url.toString()}`);
 

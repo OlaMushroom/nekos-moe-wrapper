@@ -1,4 +1,6 @@
-// Data types.
+/**
+ * Structure of Post's data.
+ */
 type PostData = {
   id: string;
   approver?: {
@@ -19,6 +21,9 @@ type PostData = {
   };
 };
 
+/**
+ * Structure of User's data.
+ */
 type UserData = {
   id: string;
   createdAt: string;
@@ -34,13 +39,18 @@ type UserData = {
   verified?: boolean;
 };
 
+/**
+ * Structure of Upload's data.
+ */
 type UploadData = {
   image: PostData;
   image_url: string;
   post_url: string;
 };
 
-// Search fields types.
+/**
+ * Structure of Post's search fields.
+ */
 type PostFields = {
   id?: string;
   nsfw?: boolean;
@@ -54,12 +64,18 @@ type PostFields = {
   limit?: number;
 };
 
+/**
+ * Structure of User's search fields.
+ */
 type UserFields = {
   query?: string;
   skip?: number;
   limit?: number;
 };
 
+/**
+ * Structure of Upload's fields.
+ */
 type UploadFields = {
   image: File;
   nsfw: boolean;
