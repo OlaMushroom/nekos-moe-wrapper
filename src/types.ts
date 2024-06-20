@@ -8,13 +8,13 @@ type PostData = {
     username: string;
   };
   artist?: string;
-  comments?: [];
+  comments?: Array<unknown>;
   createdAt: string;
   favorites?: number;
   likes?: number;
   pending?: boolean;
   nsfw: string;
-  tags: string[];
+  tags: Array<string>;
   uploader: {
     id: string;
     username: string;
@@ -28,12 +28,12 @@ type UserData = {
   id: string;
   createdAt: string;
   email: string;
-  favorites?: string[];
+  favorites?: Array<string>;
   favoritesReceived: number;
-  likes?: string[];
+  likes?: Array<string>;
   likesReceived: number;
-  roles: string[];
-  savedTags?: string[];
+  roles: Array<string>;
+  savedTags?: Array<string>;
   uploads: number;
   username: string;
   verified?: boolean;
@@ -56,7 +56,7 @@ type PostFields = {
   nsfw?: boolean;
   uploader?: string | object;
   artist?: string;
-  tags?: string[];
+  tags?: Array<string>;
   sort?: 'newest' | 'oldest' | 'likes' | 'relevance';
   posted_before?: number; // milliseconds
   posted_after?: number; // milliseconds

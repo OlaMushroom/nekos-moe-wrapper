@@ -1,10 +1,11 @@
 export { createFile } from './main.ts';
-export { post } from './post.ts';
-export { user, auth } from './user.ts';
+export { post, upload } from './post.ts';
+export { user } from './user.ts';
+export { auth } from './auth.ts';
 export type { PostFields, UserFields, UploadFields } from './types.ts';
 
 /**
- * Contains various information including URLs, repositories, and documentation.
+ * Contains various information including URLs, repos and docs.
  */
 export const info = {
   website: {
