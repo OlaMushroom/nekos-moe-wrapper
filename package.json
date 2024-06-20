@@ -1,16 +1,17 @@
 {
   "name": "nekos-moe",
-  "module": "./src/index.ts",
   "type": "module",
+  "module": "./src/index.ts",
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
+    "@shikijs/vitepress-twoslash": "^1.7.0",
     "@types/bun": "latest",
     "@vitest/ui": "^1.6.0",
     "vitepress": "^1.2.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
