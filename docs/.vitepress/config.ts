@@ -5,7 +5,7 @@ export default defineConfig({
   title: 'Nekos.moe.js',
   description: 'JS/TS wrapper for Nekos.moe API',
   lastUpdated: true,
-  markdown: { codeTransformers: [transformerTwoslash()] },
+  //markdown: { codeTransformers: [transformerTwoslash()] },
   themeConfig: {
     externalLinkIcon: true,
     editLink: {

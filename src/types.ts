@@ -14,7 +14,7 @@ type PostData = {
   likes?: number;
   pending?: boolean;
   nsfw: string;
-  tags: Array<string>;
+  tags: string[];
   uploader: {
     id: string;
     username: string;
@@ -28,12 +28,12 @@ type UserData = {
   id: string;
   createdAt: string;
   email: string;
-  favorites?: Array<string>;
+  favorites?: string[];
   favoritesReceived: number;
-  likes?: Array<string>;
+  likes?: string[];
   likesReceived: number;
-  roles: Array<string>;
-  savedTags?: Array<string>;
+  roles: string[];
+  savedTags?: string[];
   uploads: number;
   username: string;
   verified?: boolean;
@@ -56,7 +56,7 @@ type PostFields = {
   nsfw?: boolean;
   uploader?: string | object;
   artist?: string;
-  tags?: Array<string>;
+  tags?: string[];
   sort?: 'newest' | 'oldest' | 'likes' | 'relevance';
   posted_before?: number; // milliseconds
   posted_after?: number; // milliseconds
@@ -80,7 +80,7 @@ type UploadFields = {
   image: File;
   nsfw: boolean;
   artist?: string;
-  tags: Array<string>;
+  tags: string[];
 };
 
 export type {

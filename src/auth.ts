@@ -16,7 +16,7 @@ const auth: Auth = {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
-  async get(username: string, password: string): Promise<string> {
+  async get(username, password) {
     const data = (await request('auth', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
