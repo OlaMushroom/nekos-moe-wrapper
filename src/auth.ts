@@ -34,7 +34,7 @@ const auth: Auth = {
    * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
    * The new authorization token will not be returned.
    */
-  async regen(token: string): Promise<void> {
+  async regen(token) {
     await request('auth', {
       method: 'POST',
       headers: { Authorization: token }

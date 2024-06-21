@@ -1,11 +1,10 @@
 import { defineConfig } from 'vitepress';
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
+//import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
 export default defineConfig({
   title: 'Nekos.moe.js',
   description: 'JS/TS wrapper for Nekos.moe API',
   lastUpdated: true,
-  //markdown: { codeTransformers: [transformerTwoslash()] },
   themeConfig: {
     externalLinkIcon: true,
     editLink: {

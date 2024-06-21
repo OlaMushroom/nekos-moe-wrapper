@@ -20,7 +20,7 @@ const user: User = {
    * If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
    * The function returns a Promise that resolves to the JSON response containing the user's information.
    */
-  async get(id, token): Promise<UserData> {
+  async get(id, token) {
     const headers = new Headers();
     if (token !== undefined) headers.append('Authorization', token);
     const data = (await request(`user/${id}`, { headers })) as {
@@ -38,7 +38,7 @@ const user: User = {
    * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search fields as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of users.
    */
-  async search(fields = {}): Promise<UserData[]> {
+  async search(fields = {}) {
     const data = (await request('users/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

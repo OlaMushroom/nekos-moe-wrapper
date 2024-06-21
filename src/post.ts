@@ -22,7 +22,7 @@ const post: Post = {
    * @param id - The unique identifier of the image.
    * @returns A Promise that resolves to the JSON response containing the image data.
    */
-  async get(id): Promise<PostData> {
+  async get(id) {
     const data = (await request(`images/${id}`)) as { image: PostData };
     return data.image;
   },
@@ -34,7 +34,7 @@ const post: Post = {
    * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
    * @returns A Promise that resolves to the JSON response containing an array of images.
    */
-  async random(count, nsfw): Promise<PostData[]> {
+  async random(count, nsfw) {
     const data = (await request(
       `random/image${count !== undefined ? `?count=${count}` : ''}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
     )) as { images: PostData[] };
@@ -50,7 +50,7 @@ const post: Post = {
    * The function sends a POST request to the 'images/search' endpoint of the API with an object containing the search fields as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of images.
    */
-  async search(fields = {}): Promise<PostData[]> {
+  async search(fields = {}) {
     const data = (await request('images/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
