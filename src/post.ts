@@ -34,9 +34,9 @@ const post: Post = {
    * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
    * @returns A Promise that resolves to the JSON response containing an array of images.
    */
-  async random(count, nsfw) {
+  async random(count = 1, nsfw) {
     const data = (await request(
-      `random/image${count !== undefined ? `?count=${count}` : ''}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
+      `random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
     )) as { images: PostData[] };
     return data.images;
   },

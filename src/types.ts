@@ -8,7 +8,7 @@ type PostData = {
     username: string;
   };
   artist?: string;
-  comments?: Array<unknown>;
+  comments?: [];
   createdAt: string;
   favorites?: number;
   likes?: number;

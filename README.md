@@ -1,4 +1,4 @@
-# Nekos.moe.js
+# Nekos.moe wrapper
 
 Refer to the [documentation](https://nekos-moe-js.vercel.app).
 

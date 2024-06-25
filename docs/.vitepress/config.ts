@@ -14,18 +14,27 @@ export default defineConfig({
     search: { provider: 'local' },
     sidebar: [
       {
-        items: [{ text: 'Getting Started', link: '/' }],
-      }, 
+        items: [{ text: 'Getting Started', link: '/' }]
+      },
       {
         text: 'Usage Examples',
+        link: '/examples/',
         items: [
-          { text: 'image', link: '/post' },
-          { text: 'user', link: '/user' },
-          // { text: 'buffer', link: '/buffer' }
+          { text: 'post', link: '/examples/post' },
+          { text: 'user', link: '/examples/user' },
+        ]
+      },
+      {
+        text: 'Types',
+        items: [
+          { text: 'Data', link: '/types/data' },
+          { text: 'Search fields', link: '/types/fields' }
         ]
       }
     ],
-    socialLinks: [{ icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe.js' }]
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe.js' }
+    ]
   },
   head: [['link', { rel: 'icon', href: '/logo.jpg' }]]
 });

@@ -2,8 +2,6 @@ import { readFileSync } from 'node:fs';
 import { expect, test, describe, beforeAll } from 'vitest';
 import { post, user, createFile } from '../src/index.ts';
 
-const arr: number[] = [];
-
 function getRndInt(max: number): number {
   return Math.floor(Math.random() * max + 1);
 }
@@ -18,6 +16,7 @@ describe('ID check.', () => {
 });
 
 describe('Length property check.', () => {
+  const arr: number[] = [];
   beforeAll(() => {
     arr[0] = getRndInt(50);
     arr[1] = getRndInt(100);

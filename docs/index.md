@@ -1,46 +1,49 @@
 # Getting Started
 
-## Import package
+## First steps
 
-- **Option 1**: Using `jsr:` specifier with [Deno](https://deno.com)
+1. Add the package:
 
-  ```js
-  import nekos from "jsr:@om/nekos-moe";
-  ```
+::: code-group
+```console [npm]
+npx jsr add @om/nekos-moe
+```
 
-- **Option 2**: Manually adding package
+```console [pnpm]
+pnpm dlx jsr add @om/nekos-moe
+```
 
-  Run:
-  ::: code-group
+```console [yarn]
+yarn dlx jsr add @om/nekos-moe
+```
 
-  ```console [npm/npx]
-  npx jsr add @om/nekos-moe
-  ```
+```console [bun]
+bunx jsr add @om/nekos-moe
+```
 
-  ```console [pnpm]
-  pnpm dlx jsr add @om/nekos-moe
-  ```
+```console [deno]
+deno add @om/nekos-moe
+```
+:::
 
-  ```console [yarn]
-  yarn dlx jsr add @om/nekos-moe
-  ```
+2. Import the package and write some code:
 
-  ```console [deno]
-  deno add @om/nekos-moe
-  ```
+```ts
+import * as nekos from "@om/nekos-moe";
 
-  ```console [bun/bunx]
-  bunx jsr add @om/nekos-moe
-  ```
+console.log(nekos.info);
+```
 
-  :::
+::: tip
+You can also use `jsr:` specifier to import directly without manually adding the package when using [Deno](https://deno.com)
 
-  then import the package:
+```ts{1}
+import * as nekos from "jsr:@om/nekos-moe";
 
-  ```js
-  import nekos from "@om/nekos-moe";
-  ```
+console.log(nekos.info);
+```
+:::
 
 ## What's next?
 
-Check out some [usage examples](/post). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).
+Check out some [usage examples](/examples/). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).
