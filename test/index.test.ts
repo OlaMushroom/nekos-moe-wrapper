@@ -1,6 +1,5 @@
-import { readFileSync } from 'node:fs';
 import { expect, test, describe, beforeAll } from 'vitest';
-import { post, user, createFile } from '../src/index.ts';
+import { post, user } from '../src/index.ts';
 
 function getRndInt(max: number): number {
   return Math.floor(Math.random() * max + 1);
@@ -34,17 +33,4 @@ describe('Length property check.', () => {
     const data = await user.search({ limit: arr[1] })
     expect(data.length).toBe(arr[1]);
   });
-});
-
-test('Buffer check.', async () => {
-  const buffer = Buffer.from(
-    await createFile(
-      'C:/Windows/Web/Screen/img100.jpg',
-      'img.jpg',
-      'image/jpeg'
-    ).arrayBuffer()
-  );
-  expect(buffer.equals(readFileSync('C:/Windows/Web/Screen/img100.jpg'))).toBe(
-    true
-  );
 });

@@ -9,9 +9,6 @@
       "recommended": true,
       "style": {
         "useDefaultParameterLast": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off"
       }
     }
   },

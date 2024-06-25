@@ -8,8 +8,7 @@ import HrefBadge from '../components/HrefBadge.vue'
 
 ## `post.get()` <HrefBadge text="PostData" link="/types/data#postdata" /> <Badge type="info" text="async" />
 
-Get an `Post` by ID.
-
+Get a `Post` by ID.
 ```ts
 const imageID = "ry7gPEpg7";
 const data = await nekos.post.get(imageID);
@@ -18,8 +17,7 @@ console.log(data);
 
 ## `post.random()` <HrefBadge text="Array&lt;PostData&gt;" link="/types/data#postdata" /> <Badge type="info" text="async" />
 
-Get random `Image`s.
-
+Get random `Post`s.
 ```ts
 const count = 3; // Optional. Default to 1.
 const nsfw = false; // Optional.
@@ -27,35 +25,28 @@ const data = await nekos.post.random(count, nsfw);
 console.log(data);
 ```
 
-## `post.search()`
+## `post.search()` <HrefBadge text="Array&lt;PostData&gt;" link="/types/data#postdata" /> <Badge type="info" text="async" />
 
-Search `Image`s using custom fields.
-
-```js{9}
+Search for `Post`s using custom fields.
+```ts
 const searchFields = {
   artist: "karasusou nano",
   nsfw: false,
   limit: 5
-} // These are optional. Default to {}.
-
+}
 const data = await nekos.post.search(searchFields);
 console.log(data);
 ```
 
-## `post.upload()`
+## `post.upload()` <HrefBadge text="UploadData" link="/types/data#uploaddata" /> <Badge type="info" text="async" />
 
-Upload an `Image`.
-
-```js{12}
+Upload a pending `Post`.
+```ts
 const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
-
-// Refer to createFile().
-const imageFile = nekos.createFile("path/img.jpg", "img.jpg", "image/jpeg");
-
+const imageFile = nekos.createFile("path/img.jpg", "img.jpg", "image/jpeg"); // Refer to createFile().
 const tags = ["An", "array", "of", "tags"];
 const nsfw = false;
 const artist = "Artist's name"; // Optional.
-
 const data = await nekos.post.upload(authToken, imageFile, tags, nsfw, artist);
 console.log(data);
 ```
