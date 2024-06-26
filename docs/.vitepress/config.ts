@@ -3,23 +3,24 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   title: 'Nekos.moe.js',
-  description: 'JS/TS wrapper for Nekos.moe API',
+  description: 'TS wrapper for Nekos.moe API',
   lastUpdated: true,
   themeConfig: {
-    externalLinkIcon: true,
     editLink: {
       pattern: 'https://github.com/OlaMushroom/nekos-moe.js/blob/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
+    externalLinkIcon: true,
     search: { provider: 'local' },
     sidebar: [
       {
-        items: [{ text: 'Getting Started', link: '/' }]
+        text: 'Getting Started', link: '/',
       },
       {
         text: 'Usage Examples',
-        link: '/examples/',
         items: [
+          { text: 'Basic', link: '/examples/basic' },
+          { text: 'Advanced', link: '/examples/advanced' },
           { text: 'post', link: '/examples/post' },
           { text: 'user', link: '/examples/user' },
         ]
@@ -28,7 +29,7 @@ export default defineConfig({
         text: 'Types',
         items: [
           { text: 'Data', link: '/types/data' },
-          { text: 'Search fields', link: '/types/fields' }
+          { text: 'Body fields', link: '/types/fields' }
         ]
       }
     ],

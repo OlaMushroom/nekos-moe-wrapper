@@ -1,4 +1,4 @@
-# Search field types
+# Body field types
 
 ## PostFields
 ```ts

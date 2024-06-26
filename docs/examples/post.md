@@ -44,7 +44,7 @@ Upload a pending `Post`.
 ```ts
 const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
 const imageFile = nekos.createFile("path/img.jpg", "img.jpg", "image/jpeg"); // Refer to createFile().
-const tags = ["An", "array", "of", "tags"];
+const tags = ["Array", "of", "tags"];
 const nsfw = false;
 const artist = "Artist's name"; // Optional.
 const data = await nekos.post.upload(authToken, imageFile, tags, nsfw, artist);
