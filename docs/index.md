@@ -46,4 +46,4 @@ console.log(nekos.info);
 
 ## What's next?
 
-Check out some [usage examples](/examples/). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).
+Check out some [usage examples](/examples/basic). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).
