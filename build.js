@@ -1,11 +1,9 @@
 const defaultConfig = {
   entrypoints: ['./src/index.ts'],
-  outdir: './src/js',
+  outdir: './build',
   target: 'node'
 }
-
 await Bun.build(defaultConfig);
-
 await Bun.build({
   ...defaultConfig,
   minify: {
