@@ -176,5 +176,5 @@ dist
 .DS_Store
 
 # User-specific
-output
+build
 tst
