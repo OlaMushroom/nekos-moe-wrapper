@@ -1,5 +1,9 @@
 # Getting Started
 
+:::warning
+This documentation is still in progress.
+:::
+
 ## First steps
 
 1. Add the package:

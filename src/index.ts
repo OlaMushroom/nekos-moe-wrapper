@@ -29,5 +29,3 @@ export const info = {
     }
   }
 };
-
-//https://developer.mozilla.org/en-US/docs/Web/API/Response#a_php_call

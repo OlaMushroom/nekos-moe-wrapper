@@ -7,6 +7,10 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noUnusedPrivateClassMembers": "warn",
+        "noUnusedVariables": "warn"
+      },
       "style": {
         "useDefaultParameterLast": "off"
       }
