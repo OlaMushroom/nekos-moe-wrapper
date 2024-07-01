@@ -1,4 +1,6 @@
 {
+  "name": "nekos-moe",
+  "type": "module",
   "dependencies": {},
   "devDependencies": {
     "vitepress": "^1.2.3"
