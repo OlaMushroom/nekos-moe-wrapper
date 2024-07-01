@@ -2,7 +2,7 @@ export { createFile } from './main.ts';
 export { post, upload } from './post.ts';
 export { user } from './user.ts';
 export { auth } from './auth.ts';
-export type { PostFields, UserFields, UploadFields } from './types.ts';
+export type { PostOptions, UserOptions, UploadOptions } from './types.ts';
 
 /**
  * Contains various information including URLs, repos and docs.

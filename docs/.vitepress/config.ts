@@ -2,8 +2,9 @@ import { defineConfig } from 'vitepress';
 //import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
 export default defineConfig({
-  title: 'Nekos.moe.js',
-  description: 'TS wrapper for Nekos.moe API',
+  title: 'Nekos.moe wrappper',
+  description: 'A wrapper for Nekos.moe API',
+  head: [['link', { rel: 'icon', href: '/logo.jpg' }]],
   lastUpdated: true,
   themeConfig: {
     editLink: {
@@ -11,31 +12,44 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     externalLinkIcon: true,
-    search: { provider: 'local' },
-    sidebar: [
-      {
-        text: 'Getting Started', link: '/',
-      },
-      {
-        text: 'Usage Examples',
-        items: [
-          { text: 'Basic', link: '/examples/basic' },
-          { text: 'Advanced', link: '/examples/advanced' },
-          { text: 'post', link: '/examples/post' },
-          { text: 'user', link: '/examples/user' },
-        ]
-      },
-      {
-        text: 'Types',
-        items: [
-          { text: 'Data', link: '/types/data' },
-          { text: 'Body fields', link: '/types/fields' }
-        ]
-      }
+    nav: [
+      { text: 'Guide', link: '/guide' },
+      { text: 'Reference', link: '/reference/post' },
     ],
+    search: { provider: 'local' },
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Getting Started',
+          link: '/guide'
+        },
+        {
+          text: 'Usage Examples',
+          items: [
+            { text: 'Basic', link: '/guide/basic' },
+            { text: 'Advanced', link: '/guide/advanced' }
+          ]
+        }
+      ],
+      '/reference/': [
+        {
+          text: 'Reference',
+          items: [
+            { text: 'post', link: '/reference/post' },
+            { text: 'user', link: '/reference/user' }
+          ]
+        },
+        {
+          text: 'Types',
+          items: [
+            { text: 'Data', link: '/reference/types/data' },
+            { text: 'Options', link: '/reference/types/fields' }
+          ]
+        }
+      ]
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe.js' }
     ]
-  },
-  head: [['link', { rel: 'icon', href: '/logo.jpg' }]]
+  }
 });

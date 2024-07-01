@@ -1,9 +1,9 @@
 import { request } from './main.ts';
-import type { UserData, UserFields } from './types.ts';
+import type { UserData, UserOptions } from './types.ts';
 
 type User = {
   get(id: string, token?: string): Promise<UserData>;
-  search(fields?: UserFields): Promise<UserData[]>;
+  search(options?: UserOptions): Promise<UserData[]>;
 };
 
 /**
@@ -32,17 +32,17 @@ const user: User = {
   /**
    * Performs a search operation on the user's data.
    *
-   * @param fields - An optional object containing search criteria.
+   * @param options - An optional object containing search options.
    * @returns A Promise that resolves to the JSON response containing the search results.
    * @remarks
-   * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search fields as the request body.
+   * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search options as the request body.
    * The function returns a Promise that resolves to the JSON response containing an array of users.
    */
-  async search(fields = {}) {
+  async search(options = {}) {
     const data = (await request('users/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(fields)
+      body: JSON.stringify(options)
     })) as { users: UserData[] };
     return data.users;
   }

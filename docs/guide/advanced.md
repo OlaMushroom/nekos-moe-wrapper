@@ -1,3 +1,5 @@
+# Advanced Usage
+
 ## `createFile()`
 
 Create a `File` object from a local image.

@@ -49,9 +49,9 @@ type UploadData = {
 };
 
 /**
- * Structure of Post's search fields.
+ * Structure of Post's search options.
  */
-type PostFields = {
+type PostOptions = {
   id?: string;
   nsfw?: boolean;
   uploader?: string | object;
@@ -65,18 +65,18 @@ type PostFields = {
 };
 
 /**
- * Structure of User's search fields.
+ * Structure of User's search options.
  */
-type UserFields = {
+type UserOptions = {
   query?: string;
   skip?: number;
   limit?: number;
 };
 
 /**
- * Structure of Upload's fields.
+ * Structure of Upload's options.
  */
-type UploadFields = {
+type UploadOptions = {
   image: File;
   nsfw: boolean;
   artist?: string;
@@ -87,7 +87,7 @@ export type {
   PostData,
   UserData,
   UploadData,
-  PostFields,
-  UserFields,
-  UploadFields
+  PostOptions,
+  UserOptions,
+  UploadOptions
 };

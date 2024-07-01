@@ -1,15 +1,15 @@
 import { request } from './main.ts';
 import type {
   PostData,
-  PostFields,
+  PostOptions,
   UploadData,
-  UploadFields
+  UploadOptions
 } from './types.ts';
 
 type Post = {
   get(id: string): Promise<PostData>;
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
-  search(fields?: PostFields): Promise<PostData[]>;
+  search(options?: PostOptions): Promise<PostData[]>;
 };
 
 /**
@@ -35,6 +35,8 @@ const post: Post = {
    * @returns A Promise that resolves to the JSON response containing an array of images.
    */
   async random(count = 1, nsfw) {
+    const params = new URLSearchParams({ count: count.toString() });
+    if (nsfw !== undefined) params.append('nsfw', nsfw.toString());
     const data = (await request(
       `random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
     )) as { images: PostData[] };
@@ -42,19 +44,16 @@ const post: Post = {
   },
 
   /**
-   * Search for specific image using body fields.
+   * Search for specific images.
    *
-   * @param fields - An object containing the search fields.
+   * @param options - An object containing the search options.
    * @returns A Promise that resolves to the JSON response containing the array of image data.
-   * @remarks
-   * The function sends a POST request to the 'images/search' endpoint of the API with an object containing the search fields as the request body.
-   * The function returns a Promise that resolves to the JSON response containing an array of images.
    */
-  async search(fields = {}) {
+  async search(options = {}) {
     const data = (await request('images/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(fields)
+      body: JSON.stringify(options)
     })) as { images: PostData[] };
     return data.images;
   }
@@ -63,25 +62,23 @@ const post: Post = {
 /**
  * Uploads an image to the API.
  *
- * @param token - The authorization token for the user.
- * @param image - The File object representing the image to be uploaded.
- * @param tags - An array of tags associated with the image.
- * @param nsfw - A boolean indicating whether the image is NSFW.
- * @param artist - An optional string representing the artist of the image.
+ * @param token - The API token for authentication.
+ * @param options - The options for the image upload.
  * @returns A Promise that resolves to the JSON response containing the uploaded image data.
  * @remarks
- * The function sends a POST request to the 'images' endpoint of the API, expecting an authorization token, a File object representing the image, an array of tags, a boolean indicating whether the image is NSFW, and an optional artist name.
- * The function returns a Promise that resolves to the JSON response containing the uploaded image data.
+ * This function uses the `FormData` object to send the image data along with other parameters.
+ * The `Authorization` header is set with the provided API token for authentication.
+ * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
  */
 async function upload(
   token: string,
-  fields: UploadFields
+  options: UploadOptions
 ): Promise<UploadData> {
   const formData = new FormData();
-  formData.append('image', fields.image);
-  formData.append('nsfw', fields.nsfw.toString());
-  formData.append('tags', fields.tags.toString());
-  if (fields.artist !== undefined) formData.append('artist', fields.artist);
+  formData.append('image', options.image);
+  formData.append('nsfw', options.nsfw.toString());
+  formData.append('tags', options.tags.toString());
+  if (options.artist !== undefined) formData.append('artist', options.artist);
 
   return (await request('images', {
     method: 'POST',
