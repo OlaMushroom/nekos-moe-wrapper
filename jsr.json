@@ -1,5 +1,5 @@
 {
   "name": "@om/nekos-moe",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "exports": "./src/index.ts"
 }
