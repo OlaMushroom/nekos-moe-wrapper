@@ -5,23 +5,23 @@
 1. Add the package:
 
 ::: code-group
-```console [npm]
+```sh [npm]
 npx jsr add @om/nekos-moe
 ```
 
-```console [pnpm]
+```sh [pnpm]
 pnpm dlx jsr add @om/nekos-moe
 ```
 
-```console [yarn]
+```sh [yarn]
 yarn dlx jsr add @om/nekos-moe
 ```
 
-```console [bun]
+```sh [bun]
 bunx jsr add @om/nekos-moe
 ```
 
-```console [deno]
+```sh [deno]
 deno add @om/nekos-moe
 ```
 :::
@@ -44,6 +44,8 @@ console.log(nekos.info);
 ```
 :::
 
-## What's next?
+## Further Reading
 
-Check out some [usage examples](/guide/basic). Alternatively, reference documentation is available at the [JSR package site](https://jsr.io/@om/nekos-moe/doc). Please also take a look at the original [API documentation](https://docs.nekos.moe).
+- [Usage examples](/guide/basic)
+- [JSR package documentation](https://jsr.io/@om/nekos-moe/doc)
+- [Original API documentation](https://docs.nekos.moe)
