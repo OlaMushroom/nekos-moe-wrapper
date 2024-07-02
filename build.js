@@ -11,7 +11,6 @@ const defaultConfig = {
 };
 
 await build(defaultConfig);
-
 await build({
   ...defaultConfig,
   minifyWhitespace: true,
