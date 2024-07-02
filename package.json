@@ -6,8 +6,8 @@
     "vitepress": "^1.2.3"
   },
   "scripts": {
-    "v:dev": "vitepress dev",
-    "v:build": "vitepress build",
-    "v:preview": "vitepress preview"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   }
 }

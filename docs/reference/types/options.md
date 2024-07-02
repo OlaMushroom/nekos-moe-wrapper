@@ -1,8 +1,8 @@
-# Body field types
+# Body options types
 
-## PostFields
+## PostOptions
 ```ts
-type PostFields = {
+type PostOptions = {
   id?: string;
   nsfw?: boolean;
   uploader?: string | object;
@@ -13,22 +13,22 @@ type PostFields = {
   posted_after?: number; // milliseconds
   skip?: number;
   limit?: number;
-}
+};
 ```
 
-## UserFields
+## UserOptions
 ```ts
-type UserFields = {
+type UserOptions = {
   query?: string;
   skip?: number;
   limit?: number;
-}
+};
 ```
 
-## UploadFields
+## UploadOptions
 
 ```ts
-type UploadFields = {
+type UploadOptions = {
   image: File;
   nsfw: boolean;
   artist?: string;

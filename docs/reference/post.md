@@ -13,21 +13,17 @@ type Post = {
 ```
 
 ## `post.get()` <Badge type="info" text="async" /> <HrefBadge text="PostData" link="/reference/types/data#postdata" />
-| Parameters | Default  |
-| ---------- | -------- |
-| `id`       | Required |
+| Parameters | Type     | Default  |
+| ---------- | -------- | -------- |
+| `id`       | `string` | Required |
 
 ## `post.random()` <Badge type="info" text="async" /> <HrefBadge text="Array&lt;PostData&gt;" link="/reference/types/data#postdata" />
-| Parameters | Default     |
-| ---------- | ----------- |
-| `count`    | `1`         |
-| `nsfw`     | `undefined` |
+| Parameters | Type       | Default     |
+| ---------- | ---------- | ----------- |
+| `count`    | `number?`  | `1`         |
+| `nsfw`     | `boolean?` | `undefined` |
 
 ## `post.search()` <Badge type="info" text="async" /> <HrefBadge text="Array&lt;PostData&gt;" link="/reference/types/data#postdata" />
-| Parameters | Default     |
-| ---------- | ----------- |
-| `options`  | `{}`        |
-
-## `post.upload()` <Badge type="info" text="async" />
-
-Upload a pending `Post`.
+| Parameters | Type                                                  | Default  |
+| ---------- | ----------------------------------------------------- | -------- |
+| `options`  | [`PostOptions`](/reference/types/options#postoptions) | `{}`     |

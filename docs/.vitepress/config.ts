@@ -43,7 +43,7 @@ export default defineConfig({
           text: 'Types',
           items: [
             { text: 'Data', link: '/reference/types/data' },
-            { text: 'Options', link: '/reference/types/fields' }
+            { text: 'Options', link: '/reference/types/options' }
           ]
         }
       ]
