@@ -3,6 +3,7 @@
   "type": "module",
   "dependencies": {},
   "devDependencies": {
+    "@shikijs/vitepress-twoslash": "^1.10.1",
     "vitepress": "^1.2.3"
   },
   "scripts": {

@@ -1,11 +1,20 @@
 import { defineConfig } from 'vitepress';
-//import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
 export default defineConfig({
   title: 'Nekos.moe wrappper',
   description: 'A wrapper for Nekos.moe API',
   head: [['link', { rel: 'icon', href: '/logo.jpg' }]],
   lastUpdated: true,
+  markdown: {
+    codeTransformers: [
+      transformerTwoslash()
+    ],
+    theme: {
+      light: 'catppuccin-latte',
+      dark: 'catppuccin-frappe'
+    }
+  },
   themeConfig: {
     editLink: {
       pattern: 'https://github.com/OlaMushroom/nekos-moe.js/blob/main/docs/:path',
@@ -24,10 +33,15 @@ export default defineConfig({
           link: '/guide'
         },
         {
+          text: 'Using JS',
+          link: '/guide/js'
+        },
+        {
           text: 'Usage Examples',
           items: [
-            { text: 'Basic', link: '/guide/basic' },
-            { text: 'Advanced', link: '/guide/advanced' }
+            { text: 'Basic', link: '/guide/examples/basic' },
+            { text: 'Advanced', link: '/guide/examples/advanced' }
+
           ]
         }
       ],
