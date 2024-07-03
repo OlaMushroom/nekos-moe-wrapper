@@ -6,12 +6,12 @@
     "noImplicitOverride": true,
     // Modules
     "allowImportingTsExtensions": true,
-    "module": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     // Emit
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "build",
+    "outDir": "./build",
     "removeComments": true,
     // JavaScript Support
     "allowJs": true,
