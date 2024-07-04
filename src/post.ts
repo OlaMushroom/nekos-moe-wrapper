@@ -68,7 +68,7 @@ const post: Post = {
    * This method uses the `FormData` object to send the image data along with other parameters.
    * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
    */
-  async upload(options): Promise<UploadData> {
+  async upload(options) {
     const formData = new FormData();
     formData.append('image', options.image);
     formData.append('nsfw', options.nsfw.toString());
