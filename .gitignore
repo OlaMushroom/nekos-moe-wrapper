@@ -176,6 +176,5 @@ dist
 .DS_Store
 
 # User-specific
-build
-tst
 docs
+tst.*
