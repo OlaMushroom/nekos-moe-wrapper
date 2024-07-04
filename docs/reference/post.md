@@ -2,7 +2,7 @@
 import HrefBadge from '../components/HrefBadge.vue'
 </script>
 
-# `post` property
+# `post` object
 **Contains methods for working with [`Post`/`Image`](https://docs.nekos.moe/structures.html#post-image-data) data.**
 ```ts
 type Post = {
@@ -25,6 +25,12 @@ type Post = {
 | `nsfw`     | `boolean?` | `undefined` |
 
 ## `post.search()` <Badge type="info" text="async" /> <HrefBadge text="Array&lt;PostData&gt;" link="/reference/types/data#postdata" />
-| Parameters | Type                                                  | Default  |
-| ---------- | ----------------------------------------------------- | -------- |
-| `options`  | [`PostOptions`](/reference/types/options#postoptions) | `{}`     |
+| Parameters | Type                                                  | Default |
+| ---------- | ----------------------------------------------------- | ------- |
+| `options`  | [`PostOptions`](/reference/types/options#postoptions) | `{}`    |
+
+## `post.upload()` <Badge type="info" text="async" /> <HrefBadge text="UploadData" link="/reference/types/data#uploaddata" />
+| Parameters | Type                                                      | Default  |
+| ---------- | --------------------------------------------------------- | -------- |
+| `options`  | [`UploadOptions`](/reference/types/options#uploadoptions) | Required |
+

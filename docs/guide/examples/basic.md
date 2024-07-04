@@ -1,53 +1,25 @@
 # Basic usage examples
 
-## [Get a `Post` using ID](/reference/post#post-get)
+## Using [`post`'s methods](/reference/post)
 ```ts twoslash
 // @moduleResolution: bundler
-import * as nekos from "@om/nekos-moe"
-// ---cut---
-const imageID = 'ry7gPEpg7';
-console.log(await nekos.post.get(imageID));
-```
-
-## [Get random `Post`(s)](/reference/post#post-random)
-```ts twoslash
-// @moduleResolution: bundler
-import * as nekos from "@om/nekos-moe"
-// ---cut---
-const count = 2, nsfw = false;
-console.log(await nekos.post.random(count, nsfw));
-```
-
-## [Search for `Post`(s)](/reference/post#post-search)
-```ts twoslash
-// @moduleResolution: bundler
-import * as nekos from "@om/nekos-moe"
-// ---cut---
-const options = {
+import { post } from "@om/nekos-moe";
+console.log(await post.get('ry7gPEpg7')); // Get a Post using ID.
+console.log(await post.random(2, false)); // Get random Post(s).
+console.log(await post.search({           // Search for Post(s).
   artist: 'karasusou nano',
   nsfw: false,
   limit: 3
-}
-console.log(await nekos.post.search(options));
+}));
 ```
 
-## Get a `User` using ID
+## Using [`user`'s methods](/reference/user)
 ```ts twoslash
 // @moduleResolution: bundler
-import * as nekos from "@om/nekos-moe"
-// ---cut---
-const userID = 'BkCBy21se';
-console.log(await nekos.user.get(userID));
-```
-
-## Search for `User`(s)
-```ts twoslash
-// @moduleResolution: bundler
-import * as nekos from "@om/nekos-moe"
-// ---cut---
-const options = {
+import { user } from "@om/nekos-moe";
+console.log(await user.get('BkCBy21se')); // Get a User using ID.
+console.log(await user.search({           // Search for User(s).
   query: "brussell",
   limit: 3
-}
-console.log(await nekos.user.search(options));
+}));
 ```
