@@ -5,7 +5,7 @@
 // @moduleResolution: bundler
 import * as nekos from "@om/nekos-moe"
 // ---cut---
-const imageID: string = 'ry7gPEpg7';
+const imageID = 'ry7gPEpg7';
 console.log(await nekos.post.get(imageID));
 ```
 
