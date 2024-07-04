@@ -33,15 +33,10 @@ export default defineConfig({
           link: '/guide'
         },
         {
-          text: 'Using JS',
-          link: '/guide/js'
-        },
-        {
           text: 'Usage Examples',
           items: [
             { text: 'Basic', link: '/guide/examples/basic' },
             { text: 'Advanced', link: '/guide/examples/advanced' }
-
           ]
         }
       ],
