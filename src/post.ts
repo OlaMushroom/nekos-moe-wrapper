@@ -10,7 +10,7 @@ type Post = {
   get(id: string): Promise<PostData>;
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
   search(options?: PostOptions): Promise<PostData[]>;
-  upload(token: string, options: UploadOptions): Promise<UploadData>;
+  upload(options: UploadOptions): Promise<UploadData>;
 };
 
 /**
@@ -62,15 +62,13 @@ const post: Post = {
   /**
    * Uploads an image to the API.
    *
-   * @param token - The API token for authentication.
    * @param options - The options for the image upload.
    * @returns A Promise that resolves to the JSON response containing the uploaded image data.
    * @remarks
    * This method uses the `FormData` object to send the image data along with other parameters.
-   * The `Authorization` header is set with the provided API token for authentication.
    * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
    */
-  async upload(token: string, options: UploadOptions): Promise<UploadData> {
+  async upload(options): Promise<UploadData> {
     const formData = new FormData();
     formData.append('image', options.image);
     formData.append('nsfw', options.nsfw.toString());
@@ -80,7 +78,7 @@ const post: Post = {
     return (await request('images', {
       method: 'POST',
       headers: {
-        Authorization: token,
+        'Authorization': options.token,
         'Content-Type': 'multipart/form-data'
       },
       body: formData

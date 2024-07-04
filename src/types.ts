@@ -78,9 +78,10 @@ type UserOptions = {
  */
 type UploadOptions = {
   image: File;
-  nsfw: boolean;
   artist?: string;
+  nsfw: boolean;
   tags: string[];
+  token: string;
 };
 
 export type {

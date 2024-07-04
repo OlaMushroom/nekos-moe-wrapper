@@ -37,7 +37,7 @@ const auth: Auth = {
   async regen(token) {
     await request('auth', {
       method: 'POST',
-      headers: { Authorization: token }
+      headers: { 'Authorization': token }
     });
   }
 };
