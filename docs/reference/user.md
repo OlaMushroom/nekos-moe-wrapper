@@ -29,17 +29,6 @@ console.log(data);
 The new authorization token will not be returned.
 :::
 
-## `user.get()`
-
-Get a `User` by ID.
-
-```js{5}
-const userID = "BkCBy21se";
-
-const data = await nekos.user.get(userID);
-console.log(data);
-```
-
 ::: tip
 You can pass "@me" as the ID, and the current user's data will be returned. However, an authorization token is required.
 
@@ -51,17 +40,3 @@ const data = await nekos.user.get(userID, authToken);
 console.log(data);
 ```
 :::
-
-## `user.search()`
-
-Search `User`s using custom fields.
-
-```js{8}
-const searchFields = {
-  query: "brussell",
-  limit: 5
-} // These are optional. Default to {}.
-
-const data = await nekos.user.search(searchFields);
-console.log(data);
-```

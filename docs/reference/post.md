@@ -9,6 +9,7 @@ type Post = {
   get(id: string): Promise<PostData>;
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
   search(options?: PostOptions): Promise<PostData[]>;
+  upload(options: UploadOptions): Promise<UploadData>;
 }
 ```
 

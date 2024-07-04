@@ -21,13 +21,13 @@ deno add @om/nekos-moe
 :::
 
 2. Import the package and write some code:
-```ts
+```js
 import * as nekos from "@om/nekos-moe";
 console.log(nekos.info);
 ```
 ::: info Using `jsr:` specifier
 You can also use `jsr:` specifier to import directly without manually adding the package when using [Deno](https://deno.com).
-```ts{1}
+```js{1}
 import * as nekos from "jsr:@om/nekos-moe";
 console.log(nekos.info);
 ```
