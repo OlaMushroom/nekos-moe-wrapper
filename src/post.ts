@@ -10,6 +10,7 @@ type Post = {
   get(id: string): Promise<PostData>;
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
   search(options?: PostOptions): Promise<PostData[]>;
+  upload(token: string, options: UploadOptions): Promise<UploadData>;
 };
 
 /**
@@ -56,38 +57,35 @@ const post: Post = {
       body: JSON.stringify(options)
     })) as { images: PostData[] };
     return data.images;
+  },
+
+  /**
+   * Uploads an image to the API.
+   *
+   * @param token - The API token for authentication.
+   * @param options - The options for the image upload.
+   * @returns A Promise that resolves to the JSON response containing the uploaded image data.
+   * @remarks
+   * This method uses the `FormData` object to send the image data along with other parameters.
+   * The `Authorization` header is set with the provided API token for authentication.
+   * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
+   */
+  async upload(token: string, options: UploadOptions): Promise<UploadData> {
+    const formData = new FormData();
+    formData.append('image', options.image);
+    formData.append('nsfw', options.nsfw.toString());
+    formData.append('tags', options.tags.toString());
+    if (options.artist !== undefined) formData.append('artist', options.artist);
+
+    return (await request('images', {
+      method: 'POST',
+      headers: {
+        Authorization: token,
+        'Content-Type': 'multipart/form-data'
+      },
+      body: formData
+    })) as UploadData;
   }
 };
 
-/**
- * Uploads an image to the API.
- *
- * @param token - The API token for authentication.
- * @param options - The options for the image upload.
- * @returns A Promise that resolves to the JSON response containing the uploaded image data.
- * @remarks
- * This function uses the `FormData` object to send the image data along with other parameters.
- * The `Authorization` header is set with the provided API token for authentication.
- * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
- */
-async function upload(
-  token: string,
-  options: UploadOptions
-): Promise<UploadData> {
-  const formData = new FormData();
-  formData.append('image', options.image);
-  formData.append('nsfw', options.nsfw.toString());
-  formData.append('tags', options.tags.toString());
-  if (options.artist !== undefined) formData.append('artist', options.artist);
-
-  return (await request('images', {
-    method: 'POST',
-    headers: {
-      Authorization: token,
-      'Content-Type': 'multipart/form-data'
-    },
-    body: formData
-  })) as UploadData;
-}
-
-export { post, upload };
+export { post };

@@ -18,7 +18,7 @@ const user: User = {
    * @returns A Promise that resolves to the JSON response containing the user's information.
    * @remarks
    * If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
-   * The function returns a Promise that resolves to the JSON response containing the user's information.
+   * The method returns a Promise that resolves to the JSON response containing the user's information.
    */
   async get(id, token) {
     const headers = new Headers();
@@ -35,8 +35,8 @@ const user: User = {
    * @param options - An optional object containing search options.
    * @returns A Promise that resolves to the JSON response containing the search results.
    * @remarks
-   * The function sends a POST request to the "users/search" endpoint of the API with an object containing the search options as the request body.
-   * The function returns a Promise that resolves to the JSON response containing an array of users.
+   * The method sends a POST request to the "users/search" endpoint of the API with an object containing the search options as the request body.
+   * The method returns a Promise that resolves to the JSON response containing an array of users.
    */
   async search(options = {}) {
     const data = (await request('users/search', {

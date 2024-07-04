@@ -1,5 +1,3 @@
-import { readFileSync } from 'node:fs';
-
 async function errorHandler(res: Response) {
   let msg = '';
   const contentType = res.headers.get('content-type');
@@ -35,28 +33,4 @@ async function request(
   }
 }
 
-/**
- * Creates a new File object from a given file path.
- *
- * @param filePath - The path to the file to be read.
- * @param fileName - The name of the new File object.
- * @param fileType - The MIME type of the file. Must be either 'image/jpeg' or 'image/png'.
- * @returns A new File object.
- */
-function createFile(
-  filePath: string,
-  fileName: string,
-  fileType: 'image/jpeg' | 'image/png'
-): File {
-  try {
-    const imageFile = new File([readFileSync(filePath)], fileName, {
-      type: fileType
-    });
-    console.log('File created successfully.');
-    return imageFile;
-  } catch (err) {
-    throw Error('Error: ', { cause: err });
-  }
-}
-
-export { request, createFile };
+export { request };

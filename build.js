@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { dtsPlugin } from 'esbuild-plugin-d.ts';
+//import { dtsPlugin } from 'esbuild-plugin-d.ts';
 
 const defaultConfig = {
   bundle: true,
