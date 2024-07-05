@@ -3,7 +3,7 @@ export { user } from './user.ts';
 export { auth } from './auth.ts';
 
 /**
- * Contains various information including URLs, repos and docs.
+ * URLs for projects, repos and docs.
  */
 export const info = {
   website: {
