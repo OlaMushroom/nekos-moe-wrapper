@@ -7,21 +7,16 @@ import type {
 } from './types.ts';
 
 /**
- * Methods for interacting with the post-related API endpoints.
+ * Methods for interacting with post-related API endpoints.
  */
-export const post: {
-  get(id: string): Promise<PostData>;
-  random(count?: number, nsfw?: boolean): Promise<PostData[]>;
-  search(options?: PostOptions): Promise<PostData[]>;
-  upload(options: UploadOptions): Promise<UploadData>;
-} = {
+export const post = {
   /**
    * Retrieves an image data using the provided ID.
    *
    * @param id - The unique identifier of the image.
    * @returns A Promise that resolves to the JSON response containing the image data.
    */
-  async get(id) {
+  async get(id: string): Promise<PostData> {
     const data = (await request(`images/${id}`)) as { image: PostData };
     return data.image;
   },
@@ -33,7 +28,7 @@ export const post: {
    * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
    * @returns A Promise that resolves to the JSON response containing an array of images.
    */
-  async random(count = 1, nsfw) {
+  async random(count = 1, nsfw?: boolean): Promise<PostData[]> {
     const params = new URLSearchParams({ count: count.toString() });
     if (nsfw !== undefined) params.append('nsfw', nsfw.toString());
     const data = (await request(
@@ -48,7 +43,7 @@ export const post: {
    * @param options - An object containing the search options.
    * @returns A Promise that resolves to the JSON response containing the array of image data.
    */
-  async search(options = {}) {
+  async search(options: PostOptions = {}): Promise<PostData[]> {
     const data = (await request('images/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -66,7 +61,7 @@ export const post: {
    * This method uses the `FormData` object to send the image data along with other parameters.
    * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
    */
-  async upload(options) {
+  async upload(options: UploadOptions): Promise<UploadData> {
     const formData = new FormData();
     formData.append('image', options.image);
     formData.append('nsfw', options.nsfw.toString());

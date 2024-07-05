@@ -1,12 +1,9 @@
 import { request } from './main.ts';
 
 /**
- * Methods for authorization.
+ * Methods for interacting with authorization API endpoints.
  */
-export const auth: {
-  get(username: string, password: string): Promise<string>;
-  regen(token: string): Promise<void>;
-} = {
+export const auth = {
   /**
    * Returns authorization token.
    *
@@ -14,7 +11,7 @@ export const auth: {
    * @param password - The password of the user.
    * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
-  async get(username, password) {
+  async get(username: string, password: string): Promise<string> {
     const data = (await request('auth', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -32,7 +29,7 @@ export const auth: {
    * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
    * The new authorization token will not be returned.
    */
-  async regen(token) {
+  async regen(token: string): Promise<void> {
     await request('auth', {
       method: 'POST',
       headers: { 'Authorization': token }
