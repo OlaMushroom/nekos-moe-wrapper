@@ -9,7 +9,7 @@ import type {
 /**
  * Methods for interacting with post-related API endpoints.
  */
-export const post = {
+export default {
   /**
    * Retrieves an image data using the provided ID.
    *

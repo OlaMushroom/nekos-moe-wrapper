@@ -3,7 +3,7 @@ import { request } from './main.ts';
 /**
  * Methods for interacting with authorization API endpoints.
  */
-export const auth = {
+export default {
   /**
    * Returns authorization token.
    *

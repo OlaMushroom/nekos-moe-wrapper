@@ -1,6 +1,6 @@
-export { post } from './post.ts';
-export { user } from './user.ts';
-export { auth } from './auth.ts';
+export { default as post } from './post.ts';
+export { default as user } from './user.ts';
+export { default as auth } from './auth.ts';
 
 /**
  * Contains various information including URLs, repos and docs.
