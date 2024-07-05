@@ -1,4 +1,8 @@
 /**
+ * @module
+ */
+
+/**
  * Structure of Post's data.
  */
 type PostData = {
