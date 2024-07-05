@@ -4,7 +4,7 @@ import type { UserData, UserOptions } from './types.ts';
 /**
  * Methods for interacting with user-related API endpoints.
  */
-export default {
+export const user: object = {
   /**
    * Retrieves a user's information using provided ID.
    *
