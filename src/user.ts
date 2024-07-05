@@ -1,15 +1,13 @@
 import { request } from './main.ts';
 import type { UserData, UserOptions } from './types.ts';
 
-type User = {
+/**
+ * Methods for interacting with user-related API endpoint.
+ */
+export const user: {
   get(id: string, token?: string): Promise<UserData>;
   search(options?: UserOptions): Promise<UserData[]>;
-};
-
-/**
- * Methods for interacting with user-related API endpoints.
- */
-const user: User = {
+} = {
   /**
    * Retrieves a user's information using provided ID.
    *
@@ -47,5 +45,3 @@ const user: User = {
     return data.users;
   }
 };
-
-export { user };

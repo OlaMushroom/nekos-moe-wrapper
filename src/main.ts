@@ -11,18 +11,13 @@ async function errorHandler(res: Response) {
 
 /**
  * Main function to handle API requests.
- *
- * @param endpoint - The API endpoint to call.
- * @param options - The options for fetch request.
- * @returns A Promise that resolves to the JSON response from the API.
- * @throws Will throw an error if the fetch request fails.-
  */
-async function request(
+export async function request(
   endpoint: string,
   options: object = {}
 ): Promise<unknown> {
   const url = new URL(endpoint, 'https://nekos.moe/api/v1/');
-  console.log(`URL: ${url.toString()}`);
+  console.log(`URL: ${url.toString()}\nTimestamp: ${Date.now()}`);
 
   try {
     const res = await fetch(url, options);
@@ -32,5 +27,3 @@ async function request(
     throw Error('Error: ', { cause: err });
   }
 }
-
-export { request };

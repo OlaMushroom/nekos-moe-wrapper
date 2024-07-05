@@ -1,14 +1,12 @@
 import { request } from './main.ts';
 
-type Auth = {
-  get(username: string, password: string): Promise<string>;
-  regen(token: string): Promise<void>;
-};
-
 /**
  * Methods for authorization.
  */
-const auth: Auth = {
+export const auth: {
+  get(username: string, password: string): Promise<string>;
+  regen(token: string): Promise<void>;
+} = {
   /**
    * Returns authorization token.
    *
@@ -41,5 +39,3 @@ const auth: Auth = {
     });
   }
 };
-
-export { auth };

@@ -6,17 +6,15 @@ import type {
   UploadOptions
 } from './types.ts';
 
-type Post = {
+/**
+ * Methods for interacting with the post-related API endpoints.
+ */
+export const post: {
   get(id: string): Promise<PostData>;
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
   search(options?: PostOptions): Promise<PostData[]>;
   upload(options: UploadOptions): Promise<UploadData>;
-};
-
-/**
- * Methods for interacting with the API for image-related operations.
- */
-const post: Post = {
+} = {
   /**
    * Retrieves an image data using the provided ID.
    *
@@ -85,5 +83,3 @@ const post: Post = {
     })) as UploadData;
   }
 };
-
-export { post };

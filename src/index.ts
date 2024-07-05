@@ -1,7 +1,6 @@
 export { post } from './post.ts';
 export { user } from './user.ts';
 export { auth } from './auth.ts';
-export type { PostOptions, UserOptions, UploadOptions } from './types.ts';
 
 /**
  * Contains various information including URLs, repos and docs.
