@@ -1,3 +1,6 @@
+/**
+ * @module
+ */
 export { post } from './post.ts';
 export { user } from './user.ts';
 export { auth } from './auth.ts';

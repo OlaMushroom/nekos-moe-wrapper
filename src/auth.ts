@@ -1,3 +1,6 @@
+/**
+ * @module
+ */
 import { request } from './main.ts';
 
 /**
@@ -5,13 +8,13 @@ import { request } from './main.ts';
  */
 export const auth: {
   /**
-   * Returns authorization token.
+   * @param username - The username of the user.
+   * @param password - The password of the user.
+   * @returns A Promise that resolves to the JSON response containing the authorization token.
    */
   get(username: string, password: string): Promise<string>;
 
   /**
-   * Regenerates the authorization token.
-   *
    * @param token - The current authorization token.
    * @returns A Promise that resolves to the JSON response containing the regenerated authorization token.
    * @remarks
