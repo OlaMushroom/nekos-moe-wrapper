@@ -3,7 +3,7 @@
  */
 
 /**
- * Structure of Post's data.
+ * Post data.
  */
 type PostData = {
   id: string;
@@ -26,7 +26,7 @@ type PostData = {
 };
 
 /**
- * Structure of User's data.
+ * User data.
  */
 type UserData = {
   id: string;
@@ -44,7 +44,7 @@ type UserData = {
 };
 
 /**
- * Structure of Upload's data.
+ * Upload data.
  */
 type UploadData = {
   image: PostData;
@@ -53,7 +53,7 @@ type UploadData = {
 };
 
 /**
- * Structure of Post's search options.
+ * Post search options.
  */
 type PostOptions = {
   id?: string;
@@ -69,7 +69,7 @@ type PostOptions = {
 };
 
 /**
- * Structure of User's search options.
+ * User search options.
  */
 type UserOptions = {
   query?: string;
@@ -78,9 +78,9 @@ type UserOptions = {
 };
 
 /**
- * Structure of Upload's options.
+ * Upload fields.
  */
-type UploadOptions = {
+type UploadFields = {
   image: File;
   artist?: string;
   nsfw: boolean;
@@ -94,5 +94,5 @@ export type {
   UploadData,
   PostOptions,
   UserOptions,
-  UploadOptions
+  UploadFields
 };

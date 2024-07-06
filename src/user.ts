@@ -6,16 +6,14 @@ import type { UserData, UserOptions } from './types.ts';
  */
 export const user: {
   /**
-   * @param id - The unique identifier of the user.
-   * @param token - An optional authorization token.
-   * @returns A Promise that resolves to the JSON response containing the user's information.
-   * @remarks If "@me" is passed as the ID and an authorization token is provided, the user's data will be returned.
+   * @param id
+   * @param token
+   * @remarks If "@me" is passed as the ID and a valid authorization token is provided, the user's data will be returned.
    */
   get(id: string, token?: string): Promise<UserData>;
 
   /**
-   * @param options - An optional object containing search options.
-   * @returns A Promise that resolves to the JSON response containing the search results.
+   * @param options
    */
   search(options?: UserOptions): Promise<UserData[]>;
 } = {

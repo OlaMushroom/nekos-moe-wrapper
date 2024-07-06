@@ -3,7 +3,7 @@ import type {
   PostData,
   PostOptions,
   UploadData,
-  UploadOptions
+  UploadFields
 } from './types.ts';
 
 /**
@@ -30,13 +30,12 @@ export const post: {
    * @param options
    * @remarks This method uses the `FormData` object to send the data.
    */
-  upload(options: UploadOptions): Promise<UploadData>;
+  upload(options: UploadFields): Promise<UploadData>;
 } = {
   async get(id) {
     const data = (await request(`images/${id}`)) as { image: PostData };
     return data.image;
   },
-
   async random(count = 1, nsfw) {
     const params = new URLSearchParams({ count: count.toString() });
     if (nsfw !== undefined) params.append('nsfw', nsfw.toString());
@@ -45,7 +44,6 @@ export const post: {
     )) as { images: PostData[] };
     return data.images;
   },
-
   async search(options = {}) {
     const data = (await request('images/search', {
       method: 'POST',
@@ -54,18 +52,16 @@ export const post: {
     })) as { images: PostData[] };
     return data.images;
   },
-
   async upload(options) {
     const formData = new FormData();
     formData.append('image', options.image);
     formData.append('nsfw', options.nsfw.toString());
     formData.append('tags', options.tags.toString());
     if (options.artist !== undefined) formData.append('artist', options.artist);
-
     return (await request('images', {
       method: 'POST',
       headers: {
-        'Authorization': options.token,
+        Authorization: options.token,
         'Content-Type': 'multipart/form-data'
       },
       body: formData

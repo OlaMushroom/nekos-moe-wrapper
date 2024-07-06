@@ -24,11 +24,10 @@ export const auth: {
     })) as { token: string };
     return data.token;
   },
-
   async regen(token) {
     await request('auth', {
       method: 'POST',
-      headers: { 'Authorization': token }
+      headers: { Authorization: token }
     });
   }
 };

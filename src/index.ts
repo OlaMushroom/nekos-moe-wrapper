@@ -26,10 +26,10 @@ export const info = {
   },
   wrapper: {
     url: 'https://jsr.io/@om/nekos-moe',
-    repo: 'https://github.com/OlaMushroom/nekos-moe.js',
+    repo: 'https://github.com/OlaMushroom/nekos-moe-wrapper',
     docs: {
-      url: 'https://nekos-moe-js.vercel.app',
-      repo: 'https://github.com/OlaMushroom/nekos-moe.js/docs'
+      url: 'https://nekos-moe-wrapper.vercel.app',
+      repo: 'https://github.com/OlaMushroom/nekos-moe-wrapper/tree/docs'
     }
   }
 };
