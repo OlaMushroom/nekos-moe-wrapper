@@ -11,30 +11,24 @@ import type {
  */
 export const post: {
   /**
-   * @param id - The unique identifier of the image.
-   * @returns A Promise that resolves to the JSON response containing the image data.
+   * @param id
    */
   get(id: string): Promise<PostData>;
 
   /**
-   * @param count - The number of random images to retrieve
-   * @param nsfw - An optional boolean indicating whether to retrieve NSFW images. If not provided, the API will return both SFW and NSFW images.
-   * @returns A Promise that resolves to the JSON response containing an array of images.
+   * @param count
+   * @param nsfw
    */
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
 
   /**
-   * @param options - An object containing the search options.
-   * @returns A Promise that resolves to the JSON response containing the array of image data.
+   * @param options
    */
   search(options?: PostOptions): Promise<PostData[]>;
 
   /**
-   * @param options - The options for the image upload.
-   * @returns A Promise that resolves to the JSON response containing the uploaded image data.
-   * @remarks
-   * This method uses the `FormData` object to send the image data along with other parameters.
-   * The `Content-Type` header is set to `'multipart/form-data'` to indicate that the request contains form data.
+   * @param options
+   * @remarks This method uses the `FormData` object to send the data.
    */
   upload(options: UploadOptions): Promise<UploadData>;
 } = {

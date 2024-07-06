@@ -9,9 +9,6 @@ async function errorHandler(res: Response) {
   throw Error(`HTTP Error: ${res.status} ${res.statusText}`, { cause: msg });
 }
 
-/**
- * Main function to handle API requests.
- */
 export async function request(
   endpoint: string,
   options: object = {}

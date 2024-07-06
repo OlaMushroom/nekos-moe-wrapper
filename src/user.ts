@@ -9,9 +9,7 @@ export const user: {
    * @param id - The unique identifier of the user.
    * @param token - An optional authorization token.
    * @returns A Promise that resolves to the JSON response containing the user's information.
-   * @remarks
-   * If "@me" is passed as the ID, the current user's data will be returned. In this case, an authorization token is needed.
-   * The method returns a Promise that resolves to the JSON response containing the user's information.
+   * @remarks If "@me" is passed as the ID and an authorization token is provided, the user's data will be returned.
    */
   get(id: string, token?: string): Promise<UserData>;
 

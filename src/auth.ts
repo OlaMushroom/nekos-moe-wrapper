@@ -5,18 +5,14 @@ import { request } from './main.ts';
  */
 export const auth: {
   /**
-   * @param username - The username of the user.
-   * @param password - The password of the user.
-   * @returns A Promise that resolves to the JSON response containing the authorization token.
+   * @param username
+   * @param password
    */
   get(username: string, password: string): Promise<string>;
 
   /**
-   * @param token - The current authorization token.
-   * @returns A Promise that resolves to the JSON response containing the regenerated authorization token.
-   * @remarks
-   * This method sends a POST request to the "auth" endpoint of the API with the current authorization token.
-   * The new authorization token will not be returned.
+   * @param token
+   * @remarks The new authorization token will not be returned.
    */
   regen(token: string): Promise<void>;
 } = {
