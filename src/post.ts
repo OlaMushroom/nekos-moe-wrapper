@@ -1,6 +1,3 @@
-/**
- * @module
- */
 import { request } from './main.ts';
 import type {
   PostData,

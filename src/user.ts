@@ -1,6 +1,3 @@
-/**
- * @module
- */
 import { request } from './main.ts';
 import type { UserData, UserOptions } from './types.ts';
 

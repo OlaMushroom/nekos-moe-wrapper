@@ -1,5 +1,8 @@
 /**
  * @module
+ * @example
+ * ```
+ * ```
  */
 export { post } from './post.ts';
 export { user } from './user.ts';

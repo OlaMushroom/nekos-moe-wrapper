@@ -1,6 +1,3 @@
-/**
- * @module
- */
 async function errorHandler(res: Response) {
   let msg = '';
   const contentType = res.headers.get('content-type');
