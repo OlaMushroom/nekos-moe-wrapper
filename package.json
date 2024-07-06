@@ -1,7 +1,9 @@
 {
   "name": "nekos-moe-wrapper-docs",
   "type": "module",
-  "dependencies": { "@om/nekos-moe": "npm:@jsr/om__nekos-moe" },
+  "dependencies": {
+    "@om/nekos-moe": "npm:@jsr/om__nekos-moe"
+  },
   "devDependencies": {
     "@shikijs/vitepress-twoslash": "^1.10.1",
     "vitepress": "^1.2.3"

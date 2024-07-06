@@ -1,6 +1,6 @@
-# Basic usage examples
+# Basic Usage
 
-## Using [`post`'s methods](/reference/post)
+## Using methods in [`post`](/reference/post)
 ```ts twoslash
 // @moduleResolution: bundler
 import { post } from "@om/nekos-moe";
@@ -13,7 +13,7 @@ console.log(await post.search({           // Search for Post(s).
 }));
 ```
 
-## Using [`user`'s methods](/reference/user)
+## Using methods in [`user`](/reference/user)
 ```ts twoslash
 // @moduleResolution: bundler
 import { user } from "@om/nekos-moe";

@@ -13,3 +13,15 @@ const options: UploadOptions = {
 }
 console.log(await nekos.upload(options));
 ```
+
+::: tip
+You can pass "@me" as the ID, and the user's data will be returned. However, an authorization token is required.
+
+```js{6}
+const userID = "@me";
+const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
+
+const data = await nekos.user.get(userID, authToken);
+console.log(data);
+```
+:::

@@ -1,42 +1,27 @@
-# `user` property
+<script setup>
+import HrefBadge from '../components/HrefBadge.vue'
+</script>
 
-**Contains methods for working with [User](https://docs.nekos.moe/structures.html#user-data) data.**
-
-## `user.auth.get()`
-
-Get authorization token.
-
-```js{6}
-const username = "ilovecatgirls";
-const password = "^nyaa321^";
-
-const data = await nekos.user.auth.get(username, password);
-console.log(data);
+# `user`
+**Contains methods for working with [`User`](https://docs.nekos.moe/structures.html#user-data) data.**
+```ts twoslash
+// @moduleResolution: bundler
+import type { UserData, UserOptions } from '@om/nekos-moe/types';
+type _ = 
+// ---cut---
+{
+  get(id: string, token?: string): Promise<UserData>;
+  search(options?: UserOptions): Promise<UserData[]>
+}
 ```
 
-## `user.auth.regen()`
+## `user.get()` <Badge type="info" text="async" /> <HrefBadge text="UserData" link="/reference/types/data#userdata" />
+| Parameters | Type     | Default     |
+| ---------- | -------- | ----------- |
+| `id`       | `string` | Required    |
+| `token`    | `string` | `undefined` |
 
-Regenerate authorization token.
-
-```js{5}
-const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
-
-const data = await nekos.user.auth.regen(authToken);
-console.log(data);
-```
-
-:::info
-The new authorization token will not be returned.
-:::
-
-::: tip
-You can pass "@me" as the ID, and the current user's data will be returned. However, an authorization token is required.
-
-```js{6}
-const userID = "@me";
-const authToken = "abcdefghhijklmnopqrstuvwxyz1234567890";
-
-const data = await nekos.user.get(userID, authToken);
-console.log(data);
-```
-:::
+## `user.search()` <Badge type="info" text="async" /> <HrefBadge text="Array&lt;UserData&gt;" link="/reference/types/data#userdata" />
+| Parameters | Type                                                  | Default |
+| ---------- | ----------------------------------------------------- | ------- |
+| `options`  | [`UserOptions`](/reference/types/options#useroptions) | `{}`    |

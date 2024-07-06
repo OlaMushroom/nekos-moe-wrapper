@@ -1,9 +1,8 @@
 ---
 layout: home
 hero:
-  name: 3
-  text: 2
-  tagline: 1
+  name: Nekos.moe wrapper
+  tagline: JS/TS wrapper for Nekos.moe API
   actions:
     - theme: brand
       text: Get Started

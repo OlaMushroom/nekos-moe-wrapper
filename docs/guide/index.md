@@ -26,7 +26,7 @@ import * as nekos from "@om/nekos-moe";
 console.log(nekos.info);
 ```
 ::: info Using `jsr:` specifier
-You can also use `jsr:` specifier to import directly without manually adding the package when using [Deno](https://deno.com).
+You can also use [`jsr:` specifier](https://jsr.io/docs/native-imports) to import directly when using [Deno](https://deno.com).
 ```js{1}
 import * as nekos from "jsr:@om/nekos-moe";
 console.log(nekos.info);

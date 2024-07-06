@@ -3,13 +3,11 @@ import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
 export default defineConfig({
   title: 'Nekos.moe wrappper',
-  description: 'A wrapper for Nekos.moe API',
+  description: 'JS/TS wrapper for Nekos.moe API',
   head: [['link', { rel: 'icon', href: '/logo.jpg' }]],
   lastUpdated: true,
   markdown: {
-    codeTransformers: [
-      transformerTwoslash()
-    ],
+    codeTransformers: [transformerTwoslash()],
     theme: {
       light: 'catppuccin-latte',
       dark: 'catppuccin-frappe'
@@ -45,7 +43,8 @@ export default defineConfig({
           text: 'Reference',
           items: [
             { text: 'post', link: '/reference/post' },
-            { text: 'user', link: '/reference/user' }
+            { text: 'user', link: '/reference/user' },
+            { text: 'auth', link: '/reference/auth' }
           ]
         },
         {
