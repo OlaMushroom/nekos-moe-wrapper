@@ -1,4 +1,4 @@
-# Body options types
+# Body fields/Options types
 
 ## PostOptions
 ```ts
@@ -25,10 +25,9 @@ type UserOptions = {
 };
 ```
 
-## UploadOptions
-
+## UploadFields
 ```ts
-type UploadOptions = {
+type UploadFields = {
   image: File;
   nsfw: boolean;
   artist?: string;
