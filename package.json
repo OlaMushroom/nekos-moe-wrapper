@@ -5,7 +5,7 @@
     "@om/nekos-moe": "npm:@jsr/om__nekos-moe"
   },
   "devDependencies": {
-    "@shikijs/vitepress-twoslash": "^1.10.1",
+    "@shikijs/vitepress-twoslash": "^1.10.2",
     "vitepress": "^1.2.3"
   },
   "scripts": {

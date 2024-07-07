@@ -11,7 +11,3 @@ hero:
       text: Reference
       link: /reference/post
 ---
-
-:::warning
-This documentation is still in progress.
-:::

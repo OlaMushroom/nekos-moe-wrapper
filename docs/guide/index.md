@@ -22,18 +22,17 @@ deno add @om/nekos-moe
 
 2. Import the package and write some code:
 ```js
-import * as nekos from "@om/nekos-moe";
+import * as nekos from '@om/nekos-moe';
 console.log(nekos.info);
 ```
-::: info Using `jsr:` specifier
+::: info Import using `jsr:` specifier
 You can also use [`jsr:` specifier](https://jsr.io/docs/native-imports) to import directly when using [Deno](https://deno.com).
-```js{1}
-import * as nekos from "jsr:@om/nekos-moe";
-console.log(nekos.info);
+```js
+import * as nekos from 'jsr:@om/nekos-moe';
 ```
 :::
 
-## Further Reading
-- [Usage examples](/guide/examples/basic)
+## Further reading
+- [Usage examples](/guide/basic)
 - [JSR package documentation](https://jsr.io/@om/nekos-moe/doc)
 - [Original API documentation](https://docs.nekos.moe)

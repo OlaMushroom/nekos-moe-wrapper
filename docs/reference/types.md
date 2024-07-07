@@ -1,4 +1,4 @@
-# Data types
+# Interfaces and Types
 
 ## PostData
 ```ts
@@ -47,5 +47,41 @@ type UploadData = {
   image: PostData;
   image_url: string;
   post_url: string;
+}
+```
+
+## PostSearch
+```ts
+interface PostSearch {
+  id?: string;
+  nsfw?: boolean;
+  uploader?: string | object;
+  artist?: string;
+  tags?: string[];
+  sort?: 'newest' | 'oldest' | 'likes' | 'relevance';
+  posted_before?: number; // milliseconds
+  posted_after?: number; // milliseconds
+  skip?: number;
+  limit?: number;
+}
+```
+
+## UserSearch
+```ts
+interface UserSearch {
+  query?: string;
+  skip?: number;
+  limit?: number;
+}
+```
+
+## UploadForm
+```ts
+interface UploadForm {
+  image: File;
+  artist?: string;
+  nsfw: boolean;
+  tags: string[];
+  token: string;
 }
 ```

@@ -33,8 +33,8 @@ export default defineConfig({
         {
           text: 'Usage Examples',
           items: [
-            { text: 'Basic', link: '/guide/examples/basic' },
-            { text: 'Advanced', link: '/guide/examples/advanced' }
+            { text: 'Basic', link: '/guide/basic' },
+            { text: 'Advanced', link: '/guide/advanced' }
           ]
         }
       ],
@@ -44,15 +44,13 @@ export default defineConfig({
           items: [
             { text: 'post', link: '/reference/post' },
             { text: 'user', link: '/reference/user' },
-            { text: 'auth', link: '/reference/auth' }
+            { text: 'auth', link: '/reference/auth' },
+            { text: 'Miscellaneous', link: '/reference/misc' }
           ]
         },
         {
-          text: 'Types',
-          items: [
-            { text: 'Data', link: '/reference/types/data' },
-            { text: 'Options', link: '/reference/types/options' }
-          ]
+          text: 'Interfaces & Types',
+          link: '/reference/types'
         }
       ]
     },
