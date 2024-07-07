@@ -1,21 +1,30 @@
 import { request } from './main.ts';
-import type { UserData, UserOptions } from './types.ts';
+import type { UserSearch } from './types.ts';
 
-/**
- * Methods for interacting with user-related API endpoints.
- */
+type UserData = {
+  id: string;
+  createdAt: string;
+  email: string;
+  favorites?: string[];
+  favoritesReceived: number;
+  likes?: string[];
+  likesReceived: number;
+  roles: string[];
+  savedTags?: string[];
+  uploads: number;
+  username: string;
+  verified?: boolean;
+};
+
+/** @remarks */
 export const user: {
   /**
-   * @param id
-   * @param token
    * @remarks If "@me" is passed as the ID and a valid authorization token is provided, the user's data will be returned.
    */
   get(id: string, token?: string): Promise<UserData>;
 
-  /**
-   * @param options
-   */
-  search(options?: UserOptions): Promise<UserData[]>;
+  /** @remarks */
+  search(options?: UserSearch): Promise<UserData[]>;
 } = {
   async get(id, token) {
     const headers = new Headers();
@@ -25,7 +34,6 @@ export const user: {
     };
     return data.user;
   },
-
   async search(options = {}) {
     const data = (await request('users/search', {
       method: 'POST',

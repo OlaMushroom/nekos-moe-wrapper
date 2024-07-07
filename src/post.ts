@@ -1,36 +1,36 @@
 import { request } from './main.ts';
-import type {
-  PostData,
-  PostOptions,
-  UploadData,
-  UploadFields
-} from './types.ts';
+import type { PostSearch } from './types.ts';
 
-/**
- * Methods for interacting with post-related API endpoints.
- */
+export type PostData = {
+  id: string;
+  approver?: {
+    id: string;
+    username: string;
+  };
+  artist?: string;
+  comments?: [];
+  createdAt: string;
+  favorites?: number;
+  likes?: number;
+  pending?: boolean;
+  nsfw: string;
+  tags: string[];
+  uploader: {
+    id: string;
+    username: string;
+  };
+};
+
+/** @remarks */
 export const post: {
-  /**
-   * @param id
-   */
+  /** @remarks */
   get(id: string): Promise<PostData>;
 
-  /**
-   * @param count
-   * @param nsfw
-   */
+  /** @remarks */
   random(count?: number, nsfw?: boolean): Promise<PostData[]>;
 
-  /**
-   * @param options
-   */
-  search(options?: PostOptions): Promise<PostData[]>;
-
-  /**
-   * @param options
-   * @remarks This method uses the `FormData` object to send the data.
-   */
-  upload(options: UploadFields): Promise<UploadData>;
+  /** @remarks */
+  search(options?: PostSearch): Promise<PostData[]>;
 } = {
   async get(id) {
     const data = (await request(`images/${id}`)) as { image: PostData };
@@ -51,20 +51,5 @@ export const post: {
       body: JSON.stringify(options)
     })) as { images: PostData[] };
     return data.images;
-  },
-  async upload(options) {
-    const formData = new FormData();
-    formData.append('image', options.image);
-    formData.append('nsfw', options.nsfw.toString());
-    formData.append('tags', options.tags.toString());
-    if (options.artist !== undefined) formData.append('artist', options.artist);
-    return (await request('images', {
-      method: 'POST',
-      headers: {
-        Authorization: options.token,
-        'Content-Type': 'multipart/form-data'
-      },
-      body: formData
-    })) as UploadData;
   }
 };

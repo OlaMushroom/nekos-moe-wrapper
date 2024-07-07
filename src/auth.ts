@@ -1,17 +1,11 @@
 import { request } from './main.ts';
 
-/**
- * Methods for interacting with authorization API endpoints.
- */
+/** @remarks */
 export const auth: {
-  /**
-   * @param username
-   * @param password
-   */
+  /** @remarks */
   get(username: string, password: string): Promise<string>;
 
   /**
-   * @param token
    * @remarks The new authorization token will not be returned.
    */
   regen(token: string): Promise<void>;

@@ -7,10 +7,9 @@
 export { post } from './post.ts';
 export { user } from './user.ts';
 export { auth } from './auth.ts';
+export { upload } from './upload.ts';
 
-/**
- * URLs for projects, repos and docs.
- */
+/** @remarks */
 export const info = {
   website: {
     url: 'https://nekos.moe',
