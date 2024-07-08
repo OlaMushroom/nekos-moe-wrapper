@@ -9,7 +9,7 @@ type UploadData = {
 };
 
 /**
- * @remarks This method uses the `FormData` object and set 'Content-Type' to 'multipart/form-data' for sending the data.
+ * @remarks This method uses the `FormData` object and set `'Content-Type': 'multipart/form-data'` to send the data.
  */
 export async function upload(form: UploadForm): Promise<UploadData> {
   const formData = new FormData();
