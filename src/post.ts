@@ -22,34 +22,27 @@ export type PostData = {
 };
 
 /** @remarks */
-export const post: {
-  /** @remarks */
-  get(id: string): Promise<PostData>;
+export async function get(id: string): Promise<PostData> {
+  const data = (await request(`images/${id}`)) as { image: PostData };
+  return data.image;
+}
 
-  /** @remarks */
-  random(count?: number, nsfw?: boolean): Promise<PostData[]>;
+/** @remarks */
+export async function random(count = 1, nsfw?: boolean): Promise<PostData[]> {
+  const params = new URLSearchParams({ count: count.toString() });
+  if (nsfw !== undefined) params.append('nsfw', nsfw.toString());
+  const data = (await request(
+    `random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
+  )) as { images: PostData[] };
+  return data.images;
+}
 
-  /** @remarks */
-  search(options?: PostSearch): Promise<PostData[]>;
-} = {
-  async get(id) {
-    const data = (await request(`images/${id}`)) as { image: PostData };
-    return data.image;
-  },
-  async random(count = 1, nsfw) {
-    const params = new URLSearchParams({ count: count.toString() });
-    if (nsfw !== undefined) params.append('nsfw', nsfw.toString());
-    const data = (await request(
-      `random/image?count=${count}${nsfw !== undefined ? `&nsfw=${nsfw}` : ''}`
-    )) as { images: PostData[] };
-    return data.images;
-  },
-  async search(options = {}) {
-    const data = (await request('images/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(options)
-    })) as { images: PostData[] };
-    return data.images;
-  }
-};
+/** @remarks */
+export async function search(options: PostSearch = {}): Promise<PostData[]> {
+  const data = (await request('images/search', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(options)
+  })) as { images: PostData[] };
+  return data.images;
+}

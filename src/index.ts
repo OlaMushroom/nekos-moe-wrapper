@@ -1,15 +1,17 @@
 /**
  * @module
  * @example
- * ```
+ * ```ts
+ * import * as nekos from '@om/nekos-moe';
+ * console.log(nekos.info);
  * ```
  */
-export { post } from './post.ts';
-export { user } from './user.ts';
-export { auth } from './auth.ts';
+export * as post from './post.ts';
+export * as user from './user.ts';
+export * as auth from './auth.ts';
 export { upload } from './upload.ts';
 
-/** @remarks */
+/** @privateRemarks */
 export const info = {
   website: {
     url: 'https://nekos.moe',

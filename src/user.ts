@@ -16,30 +16,22 @@ type UserData = {
   verified?: boolean;
 };
 
-/** @remarks */
-export const user: {
-  /**
-   * @remarks If "@me" is passed as the ID and a valid authorization token is provided, the user's data will be returned.
-   */
-  get(id: string, token?: string): Promise<UserData>;
+/** @remarks If "@me" is passed as the ID and a valid authorization token is provided, the user's data will be returned. */
+export async function get(id: string, token?: string): Promise<UserData> {
+  const headers = new Headers();
+  if (token !== undefined) headers.append('Authorization', token);
+  const data = (await request(`user/${id}`, { headers })) as {
+    user: UserData;
+  };
+  return data.user;
+}
 
-  /** @remarks */
-  search(options?: UserSearch): Promise<UserData[]>;
-} = {
-  async get(id, token) {
-    const headers = new Headers();
-    if (token !== undefined) headers.append('Authorization', token);
-    const data = (await request(`user/${id}`, { headers })) as {
-      user: UserData;
-    };
-    return data.user;
-  },
-  async search(options = {}) {
-    const data = (await request('users/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(options)
-    })) as { users: UserData[] };
-    return data.users;
-  }
-};
+/** @remarks */
+export async function search(options: UserSearch = {}): Promise<UserData[]> {
+  const data = (await request('users/search', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(options)
+  })) as { users: UserData[] };
+  return data.users;
+}

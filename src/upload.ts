@@ -8,9 +8,7 @@ type UploadData = {
   post_url: string;
 };
 
-/**
- * @remarks This method uses the `FormData` object and set `'Content-Type': 'multipart/form-data'` to send the data.
- */
+/** @remarks This method uses the `FormData` object and set `'Content-Type': 'multipart/form-data'` to send the data. */
 export async function upload(form: UploadForm): Promise<UploadData> {
   const formData = new FormData();
   formData.append('image', form.image);

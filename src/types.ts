@@ -1,6 +1,4 @@
-/**
- * @module
- */
+/** @module */
 
 /** @remarks */
 export interface PostSearch {
