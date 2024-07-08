@@ -3,14 +3,13 @@
  * @example
  * ```ts
  * import * as nekos from '@om/nekos-moe';
- * console.log(nekos.info);
+ * console.log(nekos._links);
  * ```
  */
 export * from './main.ts';
-export * as user from './user.ts';
 
-/** Description */
-export const info = {
+/** URLs. */
+export const _links = {
   website: {
     url: 'https://nekos.moe',
     repo: 'https://github.com/Nekos-moe/website'

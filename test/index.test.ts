@@ -1,36 +1,41 @@
 import { expect, test, describe, beforeAll } from 'vitest';
-import { post, user } from '../src/index.ts';
+import {
+  getPost,
+  getUser,
+  random,
+  searchPost,
+  searchUser
+} from '../src/index.ts';
 
 function getRndInt(max: number): number {
   return Math.floor(Math.random() * max + 1);
 }
 
-describe('ID check.', () => {
-  test("Post's IDs are the same.", async () => {
-    expect((await post.get('ry7gPEpg7')).id).toBe('ry7gPEpg7');
+describe('ID comparison.', () => {
+  test('getPost()', async () => {
+    expect((await getPost('ry7gPEpg7')).id).toBe('ry7gPEpg7');
   });
-  test("User's IDs are the same.", async () => {
-    expect((await user.get('BkCBy21se')).id).toBe('BkCBy21se');
+  test('getUser()', async () => {
+    expect((await getUser('BkCBy21se')).id).toBe('BkCBy21se');
   });
 });
 
-describe('Length property check.', () => {
+describe('Length property comparison.', () => {
   const arr: number[] = [];
   beforeAll(() => {
     arr[0] = getRndInt(50);
     arr[1] = getRndInt(100);
   });
-
-  test('Post.random()', async () => {
-    const data = await post.random(arr[0]);
+  test('random()', async () => {
+    const data = await random(arr[0]);
     expect(data.length).toBe(arr[0]);
   });
-  test('Post.search()', async () => {
-    const data = await post.search({ limit: arr[0] })
+  test('searchPost()', async () => {
+    const data = await searchPost({ limit: arr[0] });
     expect(data.length).toBe(arr[0]);
   });
-  test('User.search()', async () => {
-    const data = await user.search({ limit: arr[1] })
+  test('searchUser()', async () => {
+    const data = await searchUser({ limit: arr[1] });
     expect(data.length).toBe(arr[1]);
   });
 });
