@@ -65,7 +65,7 @@ async function sendRequest(
 }
 
 /**
- * Creates a new image using File object.
+ * Creates a new image using `File` object.
  * @remarks File name is without file extension.
  */
 export function create(
