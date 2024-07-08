@@ -15,7 +15,7 @@ export default defineConfig({
   },
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/OlaMushroom/nekos-moe.js/blob/main/docs/:path',
+      pattern: 'https://github.com/OlaMushroom/nekos-moe-wrapper/tree/docs/docs:path',
       text: 'Edit this page on GitHub'
     },
     externalLinkIcon: true,
@@ -55,7 +55,7 @@ export default defineConfig({
       ]
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe.js' }
+      { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' }
     ]
   }
 });
