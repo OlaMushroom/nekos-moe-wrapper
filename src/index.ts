@@ -6,12 +6,10 @@
  * console.log(nekos.info);
  * ```
  */
-export * as post from './post.ts';
+export * from './main.ts';
 export * as user from './user.ts';
-export * as auth from './auth.ts';
-export { upload } from './upload.ts';
 
-/** @privateRemarks */
+/** Description */
 export const info = {
   website: {
     url: 'https://nekos.moe',

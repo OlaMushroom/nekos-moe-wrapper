@@ -1,6 +1,9 @@
-/** @module */
+/**
+ * Description
+ * @module
+ */
 
-/** @remarks */
+/** PostSearch */
 export interface PostSearch {
   id?: string;
   nsfw?: boolean;
@@ -14,14 +17,14 @@ export interface PostSearch {
   limit?: number;
 }
 
-/** @remarks */
+/** UserSearch */
 export interface UserSearch {
   query?: string;
   skip?: number;
   limit?: number;
 }
 
-/** @remarks */
+/** UploadForm */
 export interface UploadForm {
   image: File;
   artist?: string;
