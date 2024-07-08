@@ -1,7 +1,4 @@
-/**
- * Description
- * @module
- */
+/** @module */
 
 /** PostSearch */
 export interface PostSearch {
