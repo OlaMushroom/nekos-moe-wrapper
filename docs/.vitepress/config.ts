@@ -23,10 +23,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub'
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' }],
-    nav: [
-      { text: 'Guide', link: '/guide' },
-      { text: `v${version}`, items: [{ text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }] }
-    ],
+    nav: [{ text: `v${version}`, items: [{ text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }] }],
     sidebar: [
       {
         text: 'Getting Started',
@@ -34,11 +31,11 @@ export default defineConfig({
       },
       {
         text: 'Usage Examples',
-        link: '/guide/usage'
+        link: '/usage'
       },
       {
         text: 'Interfaces',
-        link: '/guide/interfaces'
+        link: '/interfaces'
       }
     ]
   }

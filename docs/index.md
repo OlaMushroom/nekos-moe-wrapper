@@ -9,5 +9,5 @@ hero:
       link: /guide
     - theme: alt
       text: Reference
-      link: https://jsr.io/@om/nekos-moe@0.6.2/doc
+      link: https://jsr.io/@om/nekos-moe/doc
 ---
