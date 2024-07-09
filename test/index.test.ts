@@ -1,4 +1,4 @@
-import { expect, test, describe, beforeAll } from 'vitest';
+import { expect, test, describe } from 'vitest';
 import {
   getPost,
   getUser,
