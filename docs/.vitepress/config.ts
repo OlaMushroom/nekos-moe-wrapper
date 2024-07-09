@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
+const version = '0.5.12';
+
 export default defineConfig({
   title: 'Nekos.moe wrappper',
   description: 'JS/TS wrapper for Nekos.moe API',
@@ -22,6 +24,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide' },
       { text: 'Reference', link: '/reference/post' },
+      { text: `v${version}`, items: [{ text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }] }
     ],
     search: { provider: 'local' },
     sidebar: {

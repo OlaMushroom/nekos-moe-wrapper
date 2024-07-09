@@ -1,5 +1,4 @@
 {
-  "name": "nekos-moe-wrapper-docs",
   "type": "module",
   "dependencies": {
     "@om/nekos-moe": "npm:@jsr/om__nekos-moe@0.5.12"
