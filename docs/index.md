@@ -6,8 +6,8 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/
+      link: /guide
     - theme: alt
       text: Reference
-      link: /reference/post
+      link: https://jsr.io/@om/nekos-moe@0.6.2/doc
 ---

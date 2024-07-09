@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
-const version = '0.5.12';
+const version = '0.6.2';
 
 export default defineConfig({
   title: 'Nekos.moe wrappper',
@@ -16,49 +16,30 @@ export default defineConfig({
     }
   },
   themeConfig: {
+    externalLinkIcon: true,
+    search: { provider: 'local' },
     editLink: {
-      pattern: 'https://github.com/OlaMushroom/nekos-moe-wrapper/tree/docs/docs:path',
+      pattern: 'https://github.com/OlaMushroom/nekos-moe-wrapper/tree/docs/docs/:path',
       text: 'Edit this page on GitHub'
     },
-    externalLinkIcon: true,
+    socialLinks: [{ icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' }],
     nav: [
       { text: 'Guide', link: '/guide' },
-      { text: 'Reference', link: '/reference/post' },
       { text: `v${version}`, items: [{ text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }] }
     ],
-    search: { provider: 'local' },
-    sidebar: {
-      '/guide/': [
-        {
-          text: 'Getting Started',
-          link: '/guide'
-        },
-        {
-          text: 'Usage Examples',
-          items: [
-            { text: 'Basic', link: '/guide/basic' },
-            { text: 'Advanced', link: '/guide/advanced' }
-          ]
-        }
-      ],
-      '/reference/': [
-        {
-          text: 'Reference',
-          items: [
-            { text: 'post', link: '/reference/post' },
-            { text: 'user', link: '/reference/user' },
-            { text: 'auth', link: '/reference/auth' },
-            { text: 'Miscellaneous', link: '/reference/misc' }
-          ]
-        },
-        {
-          text: 'Interfaces & Types',
-          link: '/reference/types'
-        }
-      ]
-    },
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' }
+    sidebar: [
+      {
+        text: 'Getting Started',
+        link: '/guide'
+      },
+      {
+        text: 'Usage Examples',
+        link: '/guide/usage'
+      },
+      {
+        text: 'Interfaces',
+        link: '/guide/interfaces'
+      }
     ]
   }
 });

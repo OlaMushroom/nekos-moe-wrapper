@@ -21,17 +21,18 @@ deno add @om/nekos-moe
 :::
 
 2. Import the package and write some code:
-```js
+```ts twoslash
+// @moduleResolution: bundler
 import * as nekos from '@om/nekos-moe';
-console.log(nekos.info);
+console.log(nekos._links);
 ```
 ::: info Import using `jsr:` specifier
 You can also use [`jsr:` specifier](https://jsr.io/docs/native-imports) to import directly when using [Deno](https://deno.com).
-```js
+```ts
 import * as nekos from 'jsr:@om/nekos-moe';
 ```
 :::
 
 ## Further reading
-- [Usage examples](/guide/basic)
+- [Usage examples](/guide/usage)
 - [Original API documentation](https://docs.nekos.moe)
