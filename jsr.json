@@ -10,7 +10,9 @@
     "include": [
       "README.md",
       "package.json",
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "js/**/*.js",
+      "bin/**/*.js"
     ]
   }
 }

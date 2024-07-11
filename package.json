@@ -8,6 +8,9 @@
   },
   "type": "module",
   "module": "./src/index.ts",
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/bun": "^1.1.6",
@@ -21,7 +24,8 @@
     "test": "vitest"
   },
   "bin": {
-    "build-js": "./build.js"
+    "build-js": "./build.js",
+    "nekos": "./bin/cli.js"
   },
   "trustedDependencies": [
     "@biomejs/biome"
