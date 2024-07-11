@@ -129,6 +129,3 @@ export {
   auth,
   _links
 };
-
-//# debugId=79206CF93825F31464756E2164756E21
-//# sourceMappingURL=index.js.map

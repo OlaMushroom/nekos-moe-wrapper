@@ -7,7 +7,20 @@
     "url": "https://github.com/OlaMushroom/nekos-moe-wrapper.git"
   },
   "type": "module",
-  "module": "./src/index.ts",
+  "module": "./src/index.js",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "files": ["src", "bin"],
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "nekos": "./bin/cli.js"
+  },
+  "scripts": {
+    "bundle": "tsc && bun build.js",
+    "test": "vitest"
+  },
   "dependencies": {
     "commander": "^12.1.0"
   },
@@ -18,14 +31,6 @@
   },
   "peerDependencies": {
     "typescript": "^5.5.3"
-  },
-  "scripts": {
-    "gen": "tsc && build-js",
-    "test": "vitest"
-  },
-  "bin": {
-    "build-js": "./build.js",
-    "nekos": "./bin/cli.js"
   },
   "trustedDependencies": [
     "@biomejs/biome"

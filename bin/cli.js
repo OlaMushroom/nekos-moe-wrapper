@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { getPost, getUser, random } from '../js/index.js';
+import { getPost, getUser, random } from '../src/index.js';
 import { sendRequest, writeImage } from './main.js';
 
 const program = new Command('nekos');
