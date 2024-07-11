@@ -10,14 +10,18 @@
   "module": "./src/index.ts",
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/node": "^20.14.10",
+    "@types/bun": "^1.1.6",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "typescript": "^5.5.3"
   },
   "scripts": {
+    "gen": "tsc && build-js",
     "test": "vitest"
+  },
+  "bin": {
+    "build-js": "./build.js"
   },
   "trustedDependencies": [
     "@biomejs/biome"

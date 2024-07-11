@@ -11,6 +11,7 @@
     // Emit
     "declaration": true,
     "emitDeclarationOnly": true,
+    "outDir": "js",
     // JavaScript Support
     "allowJs": true,
     "checkJs": true,
