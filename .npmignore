@@ -168,5 +168,12 @@ dist
 .idea
 
 # User-specific
+.github
 docs
+test
 tst
+
+bun.lockb
+biome.json
+jsr.json
+vercel.json
