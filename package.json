@@ -1,5 +1,7 @@
 {
   "name": "nekos-moe-wrapper",
+  "version": "0.6.2",
+  "license": "ISC",
   "type": "module",
   "module": "./src/index.ts",
   "devDependencies": {
