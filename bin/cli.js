@@ -5,7 +5,6 @@ import { getPost, getUser, random } from '../src/index.js';
 import { sendRequest, writeImage } from './main.js';
 
 const program = new Command('nekos');
-program.version('0.6.2');
 
 program
   .command('post')

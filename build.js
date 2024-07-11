@@ -3,8 +3,6 @@ console.log(
     entrypoints: ['./src/index.ts'],
     outdir: './src',
     format: 'esm',
-    minify: {
-      whitespace: true
-    }
+    minify: true
   })
 );
