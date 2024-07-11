@@ -19,6 +19,7 @@
   },
   "scripts": {
     "bundle": "tsc && bun build.js",
+    "compile": "bun build ./bin/cli.js --compile --minify --sourcemap",
     "test": "vitest"
   },
   "dependencies": {

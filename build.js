@@ -2,6 +2,9 @@ console.log(
   await Bun.build({
     entrypoints: ['./src/index.ts'],
     outdir: './src',
-    format: 'esm'
+    format: 'esm',
+    minify: {
+      whitespace: true
+    }
   })
 );
