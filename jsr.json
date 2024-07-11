@@ -9,10 +9,9 @@
   "publish": {
     "include": [
       "README.md",
-      "package.json",
-      "src/**/*.ts",
-      "js/**/*.js",
-      "bin/**/*.js"
+      "src/index.ts",
+      "src/main.ts",
+      "src/types.ts"
     ]
   }
 }
