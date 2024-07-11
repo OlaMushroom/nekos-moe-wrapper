@@ -2,6 +2,10 @@
   "name": "nekos-moe-wrapper",
   "version": "0.6.2",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlaMushroom/nekos-moe-wrapper.git"
+  },
   "type": "module",
   "module": "./src/index.ts",
   "devDependencies": {
