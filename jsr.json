@@ -9,9 +9,7 @@
   "publish": {
     "include": [
       "README.md",
-      "src/index.ts",
-      "src/main.ts",
-      "src/types.ts"
+      "src/**/*.ts"
     ]
   }
 }

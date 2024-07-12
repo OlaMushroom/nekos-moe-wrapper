@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { getPost, getUser, random } from '../src/index.js';
+import { getPost, getUser, random } from '../lib/index.js';
 import { sendRequest, writeImage } from './main.js';
 
 const program = new Command('nekos');
@@ -15,17 +15,19 @@ program
   .action(async (id, options) => {
     const data = await getPost(id);
     console.log(data);
-    if (options.write) writeImage(id, await sendRequest(`image/${id}`));
+    if (options.write)
+      writeImage(data.id, await sendRequest(`image/${data.id}`));
   });
 
 program
   .command('user')
+  .description('Get a `User` using ID. ')
   .alias('u')
   .argument('<id>')
-  .description('Get a `User` using ID. ')
   .action(async (id) => {
-    data = await getUser(id);
+    const data = await getUser(id);
     console.log(data);
+    console.log(`URL: https://nekos.moe/user/${data.id}`)
   });
 
 program

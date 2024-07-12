@@ -1,4 +1,4 @@
-import { mkdir, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 
 export async function sendRequest(endpoint) {
   const url = new URL(endpoint, 'https://nekos.moe/');
@@ -11,10 +11,13 @@ export async function sendRequest(endpoint) {
 }
 
 export async function writeImage(name, res) {
-  mkdir('./images', { recursive: true }, (e) => {
-    if (e) throw e;
-  });
-  const file = `${name}.${res.headers.get('content-type')?.includes('image/png') ? 'png' : 'jpg'}`;
-  writeFileSync(`./images/${file}`, new Uint8Array(await res.arrayBuffer()));
-  console.log(`File written successfully: ${file}`);
+  try {
+    const file = `${name}.${res.headers.get('content-type')?.includes('image/png') ? 'png' : 'jpg'}`;
+    console.log(`Writing file...: ${file}`)
+    mkdirSync('./images', { recursive: true });
+    writeFileSync(`./images/${file}`, new Uint8Array(await res.arrayBuffer()));
+    console.log(`File written successfully: ${file}`);
+  } catch (e) {
+    throw Error('Error: ', { cause: e });
+  }
 }

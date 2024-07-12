@@ -7,28 +7,33 @@
     "url": "https://github.com/OlaMushroom/nekos-moe-wrapper.git"
   },
   "type": "module",
-  "module": "./src/index.js",
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
-  "files": ["src", "bin"],
+  "module": "./lib/index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "bin"
+  ],
   "exports": {
-    ".": "./src/index.js"
+    ".": "./lib/index.js"
   },
   "bin": {
     "nekos": "./bin/cli.js"
   },
   "scripts": {
-    "bundle": "tsc && bun build.js",
-    "compile": "bun build ./bin/cli.js --compile --minify --sourcemap",
-    "test": "vitest"
+    "bundle": "tsc --outDir lib && bun build.js",
+    "bin": "bun build --compile --minify --sourcemap ./bin/cli.js",
+    "compile": "bun bin --outfile nekos",
+    "compile-linux-x64": "bun bin --target=bun-linux-x64 --outfile ./compiled/nekos-linux-x64",
+    "compile-win-x64": "bun bin --target=bun-windows-x64 --outfile ./compiled/nekos-win-x64",
+    "compile-all": "bun compile-linux-x64 && bun compile-win-x64"
   },
   "dependencies": {
     "commander": "^12.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/bun": "^1.1.6",
-    "vitest": "^1.6.0"
+    "@types/bun": "^1.1.6"
   },
   "peerDependencies": {
     "typescript": "^5.5.3"
