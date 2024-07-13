@@ -21,8 +21,8 @@
     "nekos": "./bin/cli.js"
   },
   "scripts": {
-    "bundle": "tsc --outDir lib && bun build.js",
-    "bin": "bun build --compile --minify --sourcemap ./bin/cli.js",
+    "bundle": "bun build.js && tsc --outDir lib",
+    "bin": "bun build ./bin/cli.js --minify --sourcemap --compile",
     "compile": "bun bin --outfile nekos",
     "compile:linux": "bun bin --target=bun-linux-x64 --outfile ./compiled/nekos-linux",
     "compile:win": "bun bin --target=bun-windows-x64 --outfile ./compiled/nekos-win",
