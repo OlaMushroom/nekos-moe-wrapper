@@ -26,9 +26,7 @@
     "compile": "bun bin --outfile nekos",
     "compile:linux": "bun bin --target=bun-linux-x64 --outfile ./compiled/nekos-linux",
     "compile:win": "bun bin --target=bun-windows-x64 --outfile ./compiled/nekos-win",
-    "compile:mac": "bun bin --target=bun-darwin-x64 --outfile ./compiled/nekos-mac",
-    "compile:mac-arm": "bun bin --target=bun-darwin-arm64 --outfile ./compiled/nekos-mac-arm",
-    "compile:all": "bun npm-run-all -s compile:*"
+    "compile-all": "concurrently -g \"npm:compile:*\""
   },
   "dependencies": {
     "commander": "^12.1.0"
@@ -36,7 +34,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/bun": "^1.1.6",
-    "npm-run-all": "^4.1.5"
+    "concurrently": "^8.2.2"
   },
   "peerDependencies": {
     "typescript": "^5.5.3"
