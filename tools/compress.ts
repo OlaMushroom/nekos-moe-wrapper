@@ -7,7 +7,7 @@ import {
 import { basename, extname, join } from 'node:path';
 import archiver from 'archiver';
 
-const dir = join(__dirname, '..', 'compiled');
+const dir = join(__dirname, '..', 'dist', 'compiled');
 const files = readdirSync(dir, { withFileTypes: true })
   .filter((item) => !item.isDirectory())
   .map((item) => item.name);
