@@ -32,8 +32,7 @@
     "compile": "bun run bin --outfile nekos",
     "compile:linux": "bun run bin --target=bun-linux-x64 --outfile ./dist/nekos-linux",
     "compile:win": "bun run bin --target=bun-windows-x64 --outfile ./dist/nekos-win",
-    "dist": "concurrently -g \"npm:compile:*\" && bun ./tools/compress.ts",
-    "publish": "bun run build && bun run dist"
+    "dist": "concurrently -g \"npm:compile:*\" && bun ./tools/compress.ts"
   },
   "dependencies": {
     "commander": "^12.1.0"
