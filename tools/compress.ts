@@ -7,15 +7,16 @@ import {
 import { basename, extname, join } from 'node:path';
 import archiver from 'archiver';
 
-const dir = join(__dirname, '..', 'dist', 'compiled');
+const dir = join(__dirname, '..', 'dist');
+const dirZip = join(dir, 'release');
 const files = readdirSync(dir, { withFileTypes: true })
   .filter((item) => !item.isDirectory())
   .map((item) => item.name);
-mkdirSync(join(dir, 'compressed'), { recursive: true });
+mkdirSync(dirZip, { recursive: true });
 for (const file of files) {
   const name = basename(file, extname(file));
   const path = join(dir, file);
-  const zip = `${join(dir, 'compressed', name)}.zip`;
+  const zip = `${join(dirZip, name)}.zip`;
   const output = createWriteStream(zip);
   output.on('close', () => {
     console.log(`${zip}: ${archive.pointer()} bytes.`);
