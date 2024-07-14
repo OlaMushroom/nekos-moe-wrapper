@@ -34,5 +34,4 @@ import * as nekos from 'jsr:@om/nekos-moe';
 :::
 
 ## Further reading
-- [Usage examples](/usage)
 - [Original API documentation](https://docs.nekos.moe)

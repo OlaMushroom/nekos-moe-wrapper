@@ -22,21 +22,42 @@ export default defineConfig({
       pattern: 'https://github.com/OlaMushroom/nekos-moe-wrapper/tree/docs/docs/:path',
       text: 'Edit this page on GitHub'
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' }],
-    nav: [{ text: `v${version}`, items: [{ text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }] }],
-    sidebar: [
-      {
-        text: 'Getting Started',
-        link: '/guide'
-      },
-      {
-        text: 'Usage Examples',
-        link: '/usage'
-      },
-      {
-        text: 'Interfaces',
-        link: '/interfaces'
-      }
-    ]
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' },
+      { icon: 'npm', link: 'https://www.npmjs.com/package/nekos-moe'}
+    ],
+    nav: [
+      { text: 'Guide', link: '/guide/jsr'},
+      { text: 'Reference', link: '/reference/interfaces'},
+      { text: `v${version}`, items: [
+        { text: 'GitHub', link: `https://github.com/OlaMushroom/nekos-moe-wrapper/releases/tag/${version}`},
+        { text: 'NPM', link: `https://www.npmjs.com/package/nekos-moe/v/${version}`},
+        { text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }
+      ]}
+    ],
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Getting Started',
+          items: [
+            { text: 'Using JSR', link: '/guide/jsr'},
+          ]
+        },
+        {
+          text: 'Usage Examples',
+          items: [
+            { text: 'API', link: '/guide/api'}
+          ]
+        }
+      ],
+      '/reference/': [
+        {
+          text: 'Reference',
+          items: [
+            { text: 'Interfaces', link: '/reference/interfaces'}
+          ]
+        }
+      ]
+    }
   }
 });
