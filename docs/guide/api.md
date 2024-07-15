@@ -11,7 +11,7 @@ import {
   searchUser,
   auth,
   regen
-} from '@om/nekos-moe';
+} from 'nekos-moe';
 
 console.log(await getPost('ry7gPEpg7'));
 console.log(await searchPost({
@@ -39,7 +39,7 @@ await regen(token);
 // @moduleResolution: bundler
 // @noErrors
 import { readFileSync } from 'node:fs';
-import { create, upload } from '@om/nekos-moe';
+import { create, upload } from 'nekos-moe';
 
 const imageFile = create(
   readFileSync('C:/Windows/Web/Screen/img100.jpg'),

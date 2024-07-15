@@ -26,8 +26,11 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/OlaMushroom/nekos-moe-wrapper' },
       { icon: 'npm', link: 'https://www.npmjs.com/package/nekos-moe'}
     ],
+    footer: {
+      message: '<a href="https://docs.nekos.moe">Original API documentation</a>'
+    },
     nav: [
-      { text: 'Guide', link: '/guide/jsr'},
+      { text: 'Guide', link: '/guide/'},
       { text: 'Reference', link: '/reference/interfaces'},
       { text: `v${version}`, items: [
         { text: 'GitHub', link: `https://github.com/OlaMushroom/nekos-moe-wrapper/releases/tag/${version}`},
@@ -40,7 +43,8 @@ export default defineConfig({
         {
           text: 'Getting Started',
           items: [
-            { text: 'Using JSR', link: '/guide/jsr'},
+            { text: 'First steps', link: '/guide/'},
+            { text: 'Deno users', link: '/guide/deno'}
           ]
         },
         {

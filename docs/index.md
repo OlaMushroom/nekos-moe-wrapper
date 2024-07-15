@@ -6,7 +6,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/jsr
+      link: /guide/
     - theme: alt
       text: Reference
       link: /reference/interfaces
