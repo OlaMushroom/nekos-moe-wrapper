@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "@om/nekos-moe": "npm:@jsr/om__nekos-moe",
     "nekos-moe": "^0.6.4"
   },
   "devDependencies": {

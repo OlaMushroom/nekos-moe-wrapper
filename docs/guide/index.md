@@ -1,8 +1,8 @@
 # First Steps
 
-## Import the package
+## Using the API
 
-### Using NPM registry
+### With NPM registry
 ::: code-group
 ```sh [npm]
 npm i nekos-moe
@@ -21,7 +21,7 @@ bun add nekos-moe
 import * as nekos from 'nekos-moe';
 ```
 
-### Using JSR registry
+### With JSR registry
 ::: code-group
 ```sh [npm]
 npx jsr add @om/nekos-moe
@@ -40,11 +40,18 @@ bunx jsr add @om/nekos-moe
 import * as nekos from '@om/nekos-moe';
 ```
 
-## Write some code
-```ts twoslash
-// @moduleResolution: bundler
-import * as nekos from 'nekos-moe';
-//---cut---
-// ...
-console.log(nekos._links);
+## Using the CLI
+::: code-group
+```sh [npm]
+npx nekos-moe
 ```
+```sh [yarn]
+yarn dlx nekos-moe
+```
+```sh [pnpm]
+pnpm dlx nekos-moe
+```
+```sh [bun]
+bunx nekos-moe
+```
+:::

@@ -1,4 +1,4 @@
-# Usage Examples
+# API Usage Examples
 
 ## Basic
 ```ts twoslash

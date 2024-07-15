@@ -11,5 +11,3 @@ hero:
       text: Reference
       link: /reference/interfaces
 ---
-::: warning WIP
-:::
