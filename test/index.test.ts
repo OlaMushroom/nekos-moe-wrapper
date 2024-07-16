@@ -8,9 +8,8 @@ import {
 } from '../src/index.ts';
 
 const getRndInt = (max: number) => Math.floor(Math.random() * max + 1);
-
-const arr = [getRndInt(50), getRndInt(100)];
-console.log(arr);
+const cnt = [getRndInt(50), getRndInt(100)];
+console.log(`Post count: ${cnt[0]}\nUser count: ${cnt[1]}`);
 
 describe('ID comparison.', () => {
   test('getPost()', async () =>
@@ -21,10 +20,10 @@ describe('ID comparison.', () => {
 
 describe('Length property comparison.', () => {
   test('searchPost()', async () =>
-    expect((await searchPost({ limit: arr[0] })).length).toBe(arr[0]));
+    expect((await searchPost({ limit: cnt[0] })).length).toBe(cnt[0]));
   test('searchUser()', async () =>
-    expect((await searchUser({ limit: arr[1] })).length).toBe(arr[1]));
+    expect((await searchUser({ limit: cnt[1] })).length).toBe(cnt[1]));
 });
 
 test('random()', async () =>
-  expect((await random(arr[0])).length).toBe(arr[0]));
+  expect((await random(cnt[0])).length).toBe(cnt[0]));

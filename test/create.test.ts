@@ -8,5 +8,5 @@ const buf = Buffer.from(
   await create(readFileSync(file), 'img', 'jpeg').arrayBuffer()
 );
 
-test('File is successfully created.', async () =>
+test('File is successfully created.', () =>
   expect(buf.equals(readFileSync(file))).toBe(true));
