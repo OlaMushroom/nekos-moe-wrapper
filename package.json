@@ -42,9 +42,7 @@
     "@types/archiver": "^6.0.2",
     "@types/bun": "^1.1.6",
     "archiver": "^7.0.1",
-    "concurrently": "^8.2.2"
-  },
-  "peerDependencies": {
+    "concurrently": "^8.2.2",
     "typescript": "^5.5.3"
   },
   "trustedDependencies": [
