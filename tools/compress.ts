@@ -14,7 +14,8 @@ const files = readdirSync(dir, { withFileTypes: true })
   .map((item) => item.name);
 mkdirSync(dirZip, { recursive: true });
 for (const file of files) {
-  const name = basename(file, extname(file));
+  const type = extname(file);
+  const name = basename(file, type);
   const path = join(dir, file);
   const zip = `${join(dirZip, name)}.zip`;
   const output = createWriteStream(zip);
@@ -41,6 +42,6 @@ for (const file of files) {
   });
   console.log(`Compressing: ${path}`);
   archive.pipe(output);
-  archive.append(readFileSync(path), { name: file });
+  archive.append(readFileSync(path), { name: `nekos${type}` });
   archive.finalize();
 }
