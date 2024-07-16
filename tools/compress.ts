@@ -16,7 +16,6 @@ mkdirSync(dirZip, { recursive: true });
 for (const file of files) {
   const type = extname(file);
   const name = basename(file, type);
-  const path = join(dir, file);
   const zip = `${join(dirZip, name)}.zip`;
   const output = createWriteStream(zip);
   output.on('close', () => {
@@ -25,8 +24,6 @@ for (const file of files) {
       'archiver has been finalized and the output file descriptor has closed.'
     );
   });
-  output.on('end', () => console.log('All data has been consumed.'));
-
   const archive = archiver('zip', {
     zlib: { level: 7 }
   });
@@ -35,11 +32,12 @@ for (const file of files) {
   });
   archive.on('warning', (e) => {
     if (e.code === 'ENOENT') {
-      console.log('Warning!');
+      console.log('Warning: No entry!');
     } else {
       throw e;
     }
   });
+  const path = join(dir, file);
   console.log(`Compressing: ${path}`);
   archive.pipe(output);
   archive.append(readFileSync(path), { name: `nekos${type}` });
