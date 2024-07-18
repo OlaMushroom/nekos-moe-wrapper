@@ -1,20 +1,12 @@
 {
   "name": "nekos-moe",
-  "version": "0.6.4",
-  "license": "ISC",
+  "version": "0.6.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/OlaMushroom/nekos-moe-wrapper.git"
   },
+  "license": "ISC",
   "type": "module",
-  "module": "./lib/index.js",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "files": [
-    "src",
-    "lib",
-    "bin"
-  ],
   "exports": {
     ".": {
       "bun": "./src/index.ts",
@@ -23,19 +15,27 @@
     },
     "./types": "./src/types.ts"
   },
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "bin": {
     "nekos": "./bin/cli.js"
   },
+  "files": [
+    "src",
+    "lib",
+    "bin"
+  ],
   "scripts": {
-    "build": "bun ./tools/build.js && tsc --outDir lib",
     "bin": "bun build ./bin/cli.js --minify --sourcemap --compile",
+    "build": "bun ./tools/build.js && tsc --outDir lib",
     "compile": "bun run bin --outfile nekos",
     "compile:linux": "bun run bin --target=bun-linux-x64 --outfile ./dist/nekos-linux",
     "compile:win": "bun run bin --target=bun-windows-x64 --outfile ./dist/nekos-win",
     "dist": "concurrently -g \"npm:compile:*\" && bun ./tools/compress.ts"
   },
   "dependencies": {
-    "commander": "^12.1.0"
+    "cac": "^6.7.14"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
