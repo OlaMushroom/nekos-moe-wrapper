@@ -1,11 +1,13 @@
 {
   "name": "nekos-moe",
   "version": "0.6.5",
+  "description": "A wrapper for Cobalt API.",
   "repository": {
     "type": "git",
     "url": "https://github.com/OlaMushroom/nekos-moe-wrapper.git"
   },
   "license": "ISC",
+  "author": "OlaMushroom",
   "type": "module",
   "exports": {
     ".": {
