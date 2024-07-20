@@ -23,11 +23,7 @@
   "bin": {
     "nekos": "./bin/cli.js"
   },
-  "files": [
-    "src",
-    "lib",
-    "bin"
-  ],
+  "files": ["src", "lib", "bin"],
   "scripts": {
     "bin": "bun build ./bin/cli.js --minify --sourcemap --compile",
     "build": "bun ./tools/build.js && tsc --outDir lib",
@@ -47,7 +43,5 @@
     "concurrently": "^8.2.2",
     "typescript": "^5.5.3"
   },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+  "trustedDependencies": ["@biomejs/biome"]
 }
