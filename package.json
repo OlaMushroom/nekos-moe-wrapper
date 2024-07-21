@@ -25,11 +25,11 @@
   },
   "files": ["src", "lib", "bin"],
   "scripts": {
-    "bin": "bun build ./bin/cli.js --minify --sourcemap --compile",
     "build": "bun ./tools/build.js && tsc --outDir lib",
-    "compile": "bun run bin --outfile nekos",
-    "compile:linux": "bun run bin --target=bun-linux-x64 --outfile ./dist/nekos-linux",
-    "compile:win": "bun run bin --target=bun-windows-x64 --outfile ./dist/nekos-win",
+    "compile": "bun build ./bin/cli.js --minify --sourcemap --compile",
+    "compile-bin": "bun run compile --outfile ./dist/nekos",
+    "compile:linux": "bun run compile --target=bun-linux-x64 --outfile ./dist/nekos-linux",
+    "compile:win": "bun run compile --target=bun-windows-x64 --outfile ./dist/nekos-win",
     "dist": "concurrently -g \"npm:compile:*\" && bun ./tools/compress.ts"
   },
   "dependencies": {
