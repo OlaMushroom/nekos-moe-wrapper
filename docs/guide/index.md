@@ -45,8 +45,8 @@ deno add @om/nekos-moe
 ```ts
 import * as nekos from '@om/nekos-moe';
 ```
-::: tip Using import specifier
-When using [Deno](https://deno.com), you can use [`npm:`](https://docs.deno.com/runtime/manual/node/npm_specifiers) or [`jsr:`](https://jsr.io/docs/native-imports) import specifier:
+::: tip Using import specifiers
+When using [Deno](https://deno.com), you can use [`npm:`](https://docs.deno.com/runtime/manual/node/npm_specifiers) or [`jsr:`](https://jsr.io/docs/native-imports) import specifiers:
 ::: code-group
 ```ts [NPM]
 import * as nekos from 'npm:nekos-moe';

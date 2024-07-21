@@ -1,7 +1,7 @@
 {
   "type": "module",
   "dependencies": {
-    "nekos-moe": "^0.6.4"
+    "nekos-moe": "^0.6.5"
   },
   "devDependencies": {
     "@shikijs/vitepress-twoslash": "^1.10.3",
