@@ -2,7 +2,7 @@
 
 ## Using the API
 
-### With NPM registry
+- ### With NPM registry
 ::: code-group
 ```sh [npm]
 npm i nekos-moe
@@ -24,7 +24,7 @@ deno add npm:nekos-moe
 import * as nekos from 'nekos-moe';
 ```
 
-### With JSR registry
+- ### With JSR registry
 ::: code-group
 ```sh [npm]
 npx jsr add @om/nekos-moe
@@ -46,7 +46,7 @@ deno add @om/nekos-moe
 import * as nekos from '@om/nekos-moe';
 ```
 ::: tip Using import specifiers
-When using [Deno](https://deno.com), you can use [`npm:`](https://docs.deno.com/runtime/manual/node/npm_specifiers) or [`jsr:`](https://jsr.io/docs/native-imports) import specifiers:
+When using [Deno](https://deno.com), you can use [`npm:`](https://docs.deno.com/runtime/manual/node/npm_specifiers) or [`jsr:`](https://jsr.io/docs/native-imports) import specifiers without explicitly installing the package:
 ::: code-group
 ```ts [NPM]
 import * as nekos from 'npm:nekos-moe';
