@@ -25,22 +25,15 @@
   },
   "files": ["src", "lib", "bin"],
   "scripts": {
-    "build": "bun ./tools/build.js && tsc --outDir lib",
-    "compile": "bun build ./bin/cli.js --minify --sourcemap --compile",
-    "compile-bin": "bun run compile --outfile ./dist/nekos",
-    "compile:linux": "bun run compile --target=bun-linux-x64 --outfile ./dist/nekos-linux",
-    "compile:win": "bun run compile --target=bun-windows-x64 --outfile ./dist/nekos-win",
-    "dist": "concurrently -g \"npm:compile:*\" && bun ./tools/compress.ts"
+    "build": "bun run build.js && tsc --outDir lib",
+    "compile": "bun build ./bin/cli.js --minify --sourcemap --compile --outfile nekos"
   },
   "dependencies": {
     "cac": "^6.7.14"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/archiver": "^6.0.2",
     "@types/bun": "latest",
-    "archiver": "^7.0.1",
-    "concurrently": "^8.2.2",
     "typescript": "^5.5.3"
   },
   "trustedDependencies": ["@biomejs/biome"]
