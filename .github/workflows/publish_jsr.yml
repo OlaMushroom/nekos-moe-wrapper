@@ -1,8 +1,8 @@
 name: Publish package to JSR
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'jsr.json'
 jobs:
   publish:
     name: Publish
