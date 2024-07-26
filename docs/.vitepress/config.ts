@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
-const version = '0.6.9';
+const version = '0.7.0';
 
 export default defineConfig({
   title: 'Nekos.moe wrappper',
@@ -28,8 +28,6 @@ export default defineConfig({
     ],
     footer: { message: '<a href="https://docs.nekos.moe">Original API documentation</a>' },
     nav: [
-      { text: 'Guide', link: '/guide/'},
-      { text: 'Reference', link: '/reference/interfaces'},
       { text: `v${version}`, items: [
         { text: 'NPM', link: `https://www.npmjs.com/package/nekos-moe/v/${version}`},
         { text: 'JSR', link: `https://jsr.io/@om/nekos-moe@${version}` }
@@ -40,8 +38,7 @@ export default defineConfig({
         { text: 'Getting Started', link: '/guide/' },
         { text: 'Usage Examples', link: '/guide/api' },
         { text: 'Build from Source', link: '/guide/build' }
-      ],
-      '/reference/': [{ text: 'Interfaces', link: '/reference/interfaces'}]
+      ]
     }
   }
 });

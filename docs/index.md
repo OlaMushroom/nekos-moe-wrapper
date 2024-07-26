@@ -8,6 +8,6 @@ hero:
       text: Get Started
       link: /guide/
     - theme: alt
-      text: Reference
-      link: /reference/interfaces
+      text: Usage Examples
+      link: /guide/api
 ---
