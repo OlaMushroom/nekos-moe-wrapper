@@ -1,5 +1,5 @@
 await Bun.build({
-  entrypoints: ['src/index.ts'],
+  entrypoints: ['index.ts'],
   outdir: 'lib',
   format: 'esm',
   minify: true

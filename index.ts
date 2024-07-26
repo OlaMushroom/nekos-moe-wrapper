@@ -1,4 +1,10 @@
-import type { PostSearch, UserSearch, UploadForm } from './types.ts';
+/**
+ * @module
+ * @example
+ * ```ts
+ * import * as nekos from '@om/nekos-moe';
+ * ```
+ */
 
 interface PostData {
   id: string;
@@ -19,7 +25,6 @@ interface PostData {
     username: string;
   };
 }
-
 interface UserData {
   id: string;
   createdAt: string;
@@ -34,13 +39,6 @@ interface UserData {
   username: string;
   verified?: boolean;
 }
-
-interface UploadData {
-  image: PostData;
-  image_url: string;
-  post_url: string;
-}
-
 async function errorHandler(res: Response) {
   let msg = '';
   if (res.headers.get('content-type')?.includes('application/json')) {
@@ -49,7 +47,6 @@ async function errorHandler(res: Response) {
   }
   throw Error(`HTTP Error: ${res.status} ${res.statusText}\n`, { cause: msg });
 }
-
 async function sendRequest(endpoint: string, options: object = {}) {
   const url = new URL(endpoint, 'https://nekos.moe/api/v1/');
   console.log(`URL: ${url.toString()}\nTimestamp: ${Date.now()}`);
@@ -61,7 +58,6 @@ async function sendRequest(endpoint: string, options: object = {}) {
     throw Error('Error: ', { cause: e });
   }
 }
-
 /**
  * Creates a new image using `File` object.
  * @remarks File name is without file extension.
@@ -86,16 +82,24 @@ export function create(
     throw Error('Error: ', { cause: e });
   }
 }
-
-// Post/Image
 /** Get a `Post` using ID. */
 export async function getPost(id: string): Promise<PostData> {
   return (await sendRequest(`images/${id}`)).image;
 }
-
 /** Search for `Post`(s). */
 export async function searchPost(
-  options: PostSearch = {}
+  options: {
+    id?: string;
+    nsfw?: boolean;
+    uploader?: string | object;
+    artist?: string;
+    tags?: string[];
+    sort?: 'newest' | 'oldest' | 'likes' | 'relevance';
+    posted_before?: number; // milliseconds
+    posted_after?: number; // milliseconds
+    skip?: number;
+    limit?: number;
+  } = {}
 ): Promise<PostData[]> {
   return (
     await sendRequest('images/search', {
@@ -105,7 +109,6 @@ export async function searchPost(
     })
   ).images;
 }
-
 /** Get random `Post`(s). */
 export async function random(count = 1, nsfw?: boolean): Promise<PostData[]> {
   const params = new URLSearchParams({ count: count.toString() });
@@ -116,12 +119,21 @@ export async function random(count = 1, nsfw?: boolean): Promise<PostData[]> {
     )
   ).images;
 }
-
 /**
  * Upload an image as pending `Post`.
  * @remarks This function uses the `FormData` object and set `'Content-Type': 'multipart/form-data'` to send the data.
  */
-export async function upload(form: UploadForm): Promise<UploadData> {
+export async function upload(form: {
+  image: File;
+  artist?: string;
+  nsfw: boolean;
+  tags: string[];
+  token: string;
+}): Promise<{
+  image: PostData;
+  image_url: string;
+  post_url: string;
+}> {
   const formData = new FormData();
   formData.append('image', form.image);
   formData.append('nsfw', form.nsfw.toString());
@@ -136,8 +148,6 @@ export async function upload(form: UploadForm): Promise<UploadData> {
     body: formData
   });
 }
-
-// User
 /**
  * Get a `User` using ID.
  * @remarks If `id == '@me'` and a valid token is provided, the user's data will be returned.
@@ -147,10 +157,13 @@ export async function getUser(id: string, token?: string): Promise<UserData> {
   if (token !== undefined) headers.append('Authorization', token);
   return (await sendRequest(`user/${id}`, { headers })).user;
 }
-
 /** Search for `User`(s). */
 export async function searchUser(
-  options: UserSearch = {}
+  options: {
+    query?: string;
+    skip?: number;
+    limit?: number;
+  } = {}
 ): Promise<UserData[]> {
   return (
     await sendRequest('users/search', {
@@ -160,8 +173,6 @@ export async function searchUser(
     })
   ).users;
 }
-
-// Auth
 /** Get token. */
 export async function auth(
   username: string,
@@ -175,7 +186,6 @@ export async function auth(
     })
   ).token;
 }
-
 /**
  * Regenerate token.
  * @remarks The new token will not be returned.

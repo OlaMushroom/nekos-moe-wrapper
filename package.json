@@ -1,6 +1,6 @@
 {
   "name": "nekos-moe",
-  "version": "0.6.9",
+  "version": "0.7.0",
   "description": "JS/TS wrapper for Nekos.moe API.",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "bun": "./src/index.ts",
+      "bun": "./index.ts",
       "import": "./lib/index.js",
       "default": "./lib/index.js"
     }
@@ -23,12 +23,11 @@
     "nekos": "bin/cli.js"
   },
   "files": [
-    "src",
     "lib",
     "bin"
   ],
   "scripts": {
-    "build": "bun build.js && bun dts-bundle-generator src/index.ts -o lib/index.d.ts --no-banner",
+    "build": "bun build.js && bun dts-bundle-generator index.ts -o lib/index.d.ts --no-banner",
     "compile": "bun build bin/cli.js --minify --sourcemap --compile --outfile nekos"
   },
   "dependencies": {

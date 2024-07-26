@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 import { readFileSync } from 'node:fs';
-import { create } from '../src/index.ts';
+import { create } from '../index.ts';
 
 const file = 'C:/Windows/Web/Screen/img100.jpg';
 
