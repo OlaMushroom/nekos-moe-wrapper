@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash';
 
-const version = '0.6.7';
+const version = '0.6.9';
 
 export default defineConfig({
   title: 'Nekos.moe wrappper',
