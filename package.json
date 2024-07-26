@@ -1,6 +1,6 @@
 {
   "name": "nekos-moe",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "JS/TS wrapper for Nekos.moe API.",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "nekos": "bin/cli.js"
   },
   "files": [
+    "index.ts",
     "lib",
     "bin"
   ],
