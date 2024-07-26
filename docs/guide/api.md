@@ -1,7 +1,7 @@
 # API Usage Examples
 
 ## Basic
-```ts twoslash
+```typescript twoslash
 // @moduleResolution: bundler
 import {
   getPost,
@@ -35,7 +35,7 @@ await regen(token);
 ```
 
 ## Advanced
-```ts twoslash
+```typescript twoslash
 // @moduleResolution: bundler
 // @noErrors
 import { readFileSync } from 'node:fs';

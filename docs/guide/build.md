@@ -7,7 +7,7 @@ You can build a CLI executable from source using Bun.
 
 1. Clone the repo and navigate to the project's root directory.
 2. Run the following command:
-```sh
+```shell
 bun run compile
 ```
 3. An executable (named `nekos`, or `nekos.exe` on Windows) will be built for your platform, located at the project's root directory.
