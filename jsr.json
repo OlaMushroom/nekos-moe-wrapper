@@ -1,11 +1,8 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
   "name": "@om/nekos-moe",
-  "version": "0.6.8",
-  "exports": {
-    ".": "./src/index.ts",
-    "./types": "./src/types.ts"
-  },
+  "version": "0.6.9",
+  "exports": "./src/index.ts",
   "publish": {
     "include": [
       "LICENSE",
