@@ -1,11 +1,5 @@
 import { expect, test, describe } from 'bun:test';
-import {
-  getPost,
-  getUser,
-  random,
-  searchPost,
-  searchUser
-} from '../index.ts';
+import { getPost, getUser, random, searchPost, searchUser } from '../index.ts';
 
 const getRndInt = (max: number) => Math.floor(Math.random() * max + 1);
 const cnt = [getRndInt(50), getRndInt(100)];
