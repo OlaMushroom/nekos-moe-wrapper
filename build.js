@@ -3,4 +3,4 @@ await Bun.build({
   outdir: 'lib',
   format: 'esm',
   minify: true
-});
+})

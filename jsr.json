@@ -1,13 +1,9 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
   "name": "@om/nekos-moe",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "exports": "./index.ts",
   "publish": {
-    "include": [
-      "LICENSE",
-      "README.md",
-      "index.ts"
-    ]
+    "include": ["LICENSE", "README.md", "index.ts"]
   }
 }

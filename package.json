@@ -1,6 +1,6 @@
 {
   "name": "nekos-moe",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "JS/TS wrapper for Nekos.moe API.",
   "repository": {
     "type": "git",

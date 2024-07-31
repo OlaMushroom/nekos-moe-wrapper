@@ -5,7 +5,6 @@ import { getPost, getUser, random } from '../lib/index.js';
 import { sendRequest, writeImage, removeDir } from './main.js';
 
 const cli = cac('nekos');
-cli.version('0.7.2');
 cli.option('-c, --clean', 'Clean the cache directory');
 
 cli
