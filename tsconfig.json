@@ -3,21 +3,16 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
-    // Modules
     "allowImportingTsExtensions": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    // Emit
     "declaration": true,
     "emitDeclarationOnly": true,
-    // JavaScript Support
     "allowJs": true,
     "checkJs": true,
-    // Interop Constraints
     "esModuleInterop": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    // Language and Environment
     "lib": ["ES2022", "DOM"],
     "moduleDetection": "force",
     "target": "ES2022",
