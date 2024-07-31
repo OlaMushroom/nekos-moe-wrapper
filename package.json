@@ -1,6 +1,6 @@
 {
   "name": "nekos-moe",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "JS/TS wrapper for Nekos.moe API.",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
     "bin"
   ],
   "scripts": {
-    "build": "bun build.js && bun dts-bundle-generator index.ts -o lib/index.d.ts --no-banner",
+    "build": "bun build.js && tsc --outDir lib",
     "compile": "bun build bin/cli.js --minify --sourcemap --compile --outfile nekos"
   },
   "dependencies": {
@@ -37,7 +37,6 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@types/bun": "latest",
-    "dts-bundle-generator": "^9.5.1",
     "typescript": "^5.5.3"
   },
   "trustedDependencies": [
